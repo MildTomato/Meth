@@ -1,6 +1,8 @@
 let SecretContent = artifacts.require("./SecretContent.sol");
 var sigUtil = require('eth-sig-util')
-  
+var fs = require('fs')
+var products = require('../src/lib/products.json')
+
 module.exports = function(deployer) {
   deployer.deploy(SecretContent).then(function(secret_contract){
   	console.log(secret_contract.address);
@@ -10,9 +12,20 @@ module.exports = function(deployer) {
   	account1 = { address: "0x01d6bEB66543ad7cCEe2b68CaE7Fe36Db3a16AC8", pubKey: "uTW6GKQwKPoyFJrAp9r4EsHpUZ0HGHzVohY42E5uCnc=", privKey: "fcc244270d06217ae16a4420902a71d3973dfcff9a8cc7135ec8a0d3e5425c71"};
   	account2 = { address: "0x654405fCdfed016cEAb58D78c9250cD3BE79d789", pubKey: "cHRjmTHuLVgQBEq38EDBBdajIf+/FvLK5x54F0GpHjc=", privKey: "c3305f5013c294894be34e7c4e32ab0b4adb448e83521bbb3b452fe71cdda60a"};
   	
-  	enc_data = sigUtil.encrypt(account0.pubKey, {data:"123456789"}, "x25519-xsalsa20-poly1305")
+  	// var img_data;
+  	// fs.readFile(__dirname + '/../public/images/full/dad.jpg', function(err, data) {
+  	// 	if (err) throw err;
+  	// 	img_data = data.toString();
+  	// 	//console.log(img_data);
 
-  	console.log(enc_data)
-  	console.log(sigUtil.decrypt(enc_data, account0.privKey));
+	  // 	enc_data = sigUtil.encrypt(account0.pubKey, {data:img_data}, "x25519-xsalsa20-poly1305")
+
+	  // 	console.log(enc_data);
+	  // 	//console.log(sigUtil.decrypt(enc_data, account0.privKey));
+  	// });
+
+  	secret_contract.mintWithTokenURI(account0, 1, JSON.stringify(products[0]));
+  	secret_contract.mintWithTokenURI(account0, 2, JSON.stringify(products[1]));
+  	secret_contract.mintWithTokenURI(account0, 3, JSON.stringify(products[2]));
   });
 };

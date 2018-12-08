@@ -1,11 +1,11 @@
 pragma solidity ^0.4.24;
   
-import "openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721MetadataMintable.sol";
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Pausable.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
-contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
-    constructor() ERC721Full("SecretContent", "SCNT") public {
+contract SecretContent is Ownable, ERC721MetadataMintable, ERC721Pausable {
+    constructor() ERC721Metadata("SecretContent", "SCNT") public {
     }
 
 
@@ -56,8 +56,6 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
         require(currentHighestBid.amount == amount);
         require(currentHighestBid.bidder == bidder);
         require(currentHighestBid.accepted == false);
-
-        // probably need some proof of receipt that the new file has been received by the image hosting db
 
         _setTokenURI(tokenId, newUri);
         safeTransferFrom(msg.sender, bidder, tokenId);
