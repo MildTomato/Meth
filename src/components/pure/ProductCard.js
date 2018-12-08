@@ -4,17 +4,19 @@ export class ProductCard extends React.PureComponent {
   render() {
     let { id, url, title } = this.props
     return (
-    	
-		  	<Link to={`/product/${id}`} className="product-card">
-		      <div>
-		    		<img className="product-card__thumbnail" src={url} alt={title} />
-		  			<div>
-		    			<h4>{title}</h4>
-		    			<p>description</p>
-		  			</div>
-					</div>
-				</Link>
-			
+    	<Link to={`/product/${id}`}>
+    	<div class="product-card">
+	  		
+	     	
+	    	<img className="product-card__thumbnail" src={url} alt={title} />
+	  			
+   			<h4>{title}</h4>
+   			<p>description</p>
+	  							
+				
+			</div>
+			</Link>
+
     );
   }
 }
