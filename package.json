@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "foundation-sites": "^6.5.1",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "truffle-contract": "^3.0.6",
+    "web3-js": "^1.0.5-beta.26"
   },
   "devDependencies": {
     "chai": "^4.2.0",
