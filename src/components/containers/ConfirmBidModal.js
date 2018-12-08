@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import { decrypt, encrypt, upload } from "../../lib/encryption";
+import { decryptMock, encryptMock, uploadMock } from "../../lib/encryption";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -61,17 +61,17 @@ export class ConfirmBidModal extends React.PureComponent {
       // Decrypt the image
       let currentState = 'Decrypting ...'
       this.setState({ isLoading: true, currentState });
-      let decrypted = await decrypt();
+      let decrypted = await decryptMock();
 
       // Encrypt with new owner's pubkey
       currentState = `Encrypting with new owner's key ...`
       this.setState({ isLoading: true, currentState });
-      let encrypted = await encrypt(decrypted, pubKey);
+      let encrypted = await encryptMock(decrypted, pubKey);
 
       // Uploading to to IPFS
       currentState = `Uploading encrypted file to IPFS ...`
       this.setState({ isLoading: true, currentState });
-      let uploaded = await upload(encrypted);
+      let uploaded = await uploadMock(encrypted);
 
       // Finally finished
       return onSuccess(uploaded);

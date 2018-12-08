@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import { decrypt } from "../../lib/encryption";
+import { decryptMock } from "../../lib/encryption";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -62,7 +62,7 @@ export class DecryptModal extends React.PureComponent {
     let { onSuccess, onFail } = this.props;
     try {
       this.setState({ isLoading: true });
-      let decrypted = await decrypt();
+      let decrypted = await decryptMock();
       console.log("decrypted", decrypted);
       return onSuccess(decrypted);
     } catch (error) {
