@@ -4,6 +4,8 @@ import products from "../lib/products.json";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";
 import { ProductCard } from "../components/pure/ProductCard";
+import { DecryptModal } from "../components/pure/DecryptModal";
+
 
 const VIEWS = {
   HODL: "HODL",
@@ -23,6 +25,7 @@ export class AccountPage extends React.Component {
       return { ...product, decrypted: false };
     });
     this.state = {
+      decryptModalOpen: false,
       userId,
       user,
       sent,
@@ -30,10 +33,22 @@ export class AccountPage extends React.Component {
       received,
       currentView: VIEWS.HODL
     };
+    this.decrypting = null
+    this.onDecryptionSuccess = this.onDecryptionSuccess.bind(this);
+  }
+
+  onDecryptionSuccess() {
+    let productId = this.decrypting
+    let hodl = this.state.hodl.map(x => {
+      if (x.id === productId) return { ...x, decrypted: true };
+      else return x;
+    });
+    this.decrypting = null
+    this.setState({ hodl, decryptModalOpen: false });
   }
 
   render() {
-    const { hodl, sent, received, currentView } = this.state;
+    const { hodl, sent, received, currentView, decryptModalOpen } = this.state;
 
     let HodlList = this._renderHodlList(hodl);
     let SentList = this._renderSentList(sent);
@@ -41,6 +56,8 @@ export class AccountPage extends React.Component {
 
     return (
       <div id="AccountPage">
+      <DecryptModal isOpen={decryptModalOpen} onSuccess={() => this.onDecryptionSuccess()} />
+
         <div className="row row--section">
           <div className="columns large-6">
             <h2>My Dashboard</h2>
@@ -199,10 +216,7 @@ export class AccountPage extends React.Component {
   }
 
   _decrypt(productId) {
-    let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return { ...x, decrypted: true };
-      else return x;
-    });
-    this.setState({ hodl });
+    this.decrypting = productId
+    this.setState({ decryptModalOpen: true });
   }
 }
