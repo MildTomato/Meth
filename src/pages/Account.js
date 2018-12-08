@@ -144,7 +144,7 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p>You hodl {sent.length} items.</p>
+                <p style={{marginTop: 16}}>You hodl {sent.length} items.</p>
               </div>
               <div className="columns large-12">
 
@@ -160,12 +160,10 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p>You have sent {sent.length} bids.</p>
-              </div>
-              <div className="columns large-12">
-                {SentList}
+                <p style={{marginTop: 16}}>You have sent {sent.length} bids.</p>
               </div>
             </div>
+            {SentList}
           </div>
         )}
 
@@ -173,7 +171,7 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p>You have received {received.length} bids.</p>
+                <p style={{marginTop: 16}}>You have received {received.length} bids.</p>
               </div>
               <div className="columns large-12">
                 {ReceivedList}
