@@ -1,11 +1,11 @@
 import React from "react";
-import store from "../lib/store.json";
+import store from "../lib/store";
 import products from "../lib/products.json";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";
 import { ProductCard } from "../components/pure/ProductCard";
-import { DecryptModal } from "../components/pure/DecryptModal";
-
+import { DecryptModal } from "../components/containers/DecryptModal";
+import { ConfirmBidModal } from "../components/containers/ConfirmBidModal";
 
 const VIEWS = {
   HODL: "HODL",
@@ -26,6 +26,7 @@ export class AccountPage extends React.Component {
     });
     this.state = {
       decryptModalOpen: false,
+      confirmModalOpen: false,
       userId,
       user,
       sent,
@@ -33,22 +34,33 @@ export class AccountPage extends React.Component {
       received,
       currentView: VIEWS.HODL
     };
-    this.decrypting = null
+    this.decrypting = null;
     this.onDecryptionSuccess = this.onDecryptionSuccess.bind(this);
   }
 
   onDecryptionSuccess() {
-    let productId = this.decrypting
+    let productId = this.decrypting;
     let hodl = this.state.hodl.map(x => {
       if (x.id === productId) return { ...x, decrypted: true };
       else return x;
     });
-    this.decrypting = null
+    this.decrypting = null;
     this.setState({ hodl, decryptModalOpen: false });
   }
 
+  onSaleSuccess() {
+    this.setState({ confirmModalOpen: false });
+  }
+
   render() {
-    const { hodl, sent, received, currentView, decryptModalOpen } = this.state;
+    const {
+      hodl,
+      sent,
+      received,
+      currentView,
+      decryptModalOpen,
+      confirmModalOpen
+    } = this.state;
 
     let HodlList = this._renderHodlList(hodl);
     let SentList = this._renderSentList(sent);
@@ -56,7 +68,14 @@ export class AccountPage extends React.Component {
 
     return (
       <div id="AccountPage">
-      <DecryptModal isOpen={decryptModalOpen} onSuccess={() => this.onDecryptionSuccess()} />
+        <DecryptModal
+          isOpen={decryptModalOpen}
+          onSuccess={() => this.onDecryptionSuccess()}
+        />
+        <ConfirmBidModal
+          isOpen={confirmModalOpen}
+          onSuccess={() => this.onSaleSuccess()}
+        />
 
         <div className="row row--section">
           <div className="columns large-6">
@@ -121,7 +140,7 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{marginTop: 16}}>You hodl {sent.length} items.</p>
+                <p style={{ marginTop: 16 }}>You hodl {sent.length} items.</p>
               </div>
             </div>
 
@@ -133,7 +152,9 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{marginTop: 16}}>You have sent {sent.length} bids.</p>
+                <p style={{ marginTop: 16 }}>
+                  You have sent {sent.length} bids.
+                </p>
               </div>
             </div>
             {SentList}
@@ -144,7 +165,9 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{marginTop: 16}}>You have received {received.length} bids.</p>
+                <p style={{ marginTop: 16 }}>
+                  You have received {received.length} bids.
+                </p>
               </div>
               <div className="columns large-12">{ReceivedList}</div>
             </div>
@@ -188,7 +211,7 @@ export class AccountPage extends React.Component {
           thumb={product.thumb}
           wei={bid.wei}
           onAccept={() => {
-            alert("Accepted");
+            this._confirmBid(bid.id)
           }}
           onDecline={() => {
             alert("Declined");
@@ -216,7 +239,11 @@ export class AccountPage extends React.Component {
   }
 
   _decrypt(productId) {
-    this.decrypting = productId
+    this.decrypting = productId;
     this.setState({ decryptModalOpen: true });
+  }
+
+  _confirmBid(bidId) {
+    this.setState({ confirmModalOpen: true });
   }
 }
