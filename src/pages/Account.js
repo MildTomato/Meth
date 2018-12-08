@@ -23,7 +23,7 @@ export class AccountPage extends React.Component {
     let hodl = (user.hodl || []).map(x => {
       let product = products.find(p => `${p.id}` === `${x}`) || null;
       if (product === null) return null;
-      return { ...product, decrypted: false, isLoading: false };
+      return { ...product, decrypted: false, isLoading: false, isVerified: false };
     });
     this.state = {
       decryptModalOpen: false,
@@ -37,6 +37,7 @@ export class AccountPage extends React.Component {
       currentView: VIEWS.HODL
     };
     this.decrypting = null;
+    this.verifying = null;
     this._onDecryptionSuccess = this._onDecryptionSuccess.bind(this);
   }
 
@@ -48,6 +49,16 @@ export class AccountPage extends React.Component {
     });
     this.decrypting = null;
     this.setState({ hodl, decryptModalOpen: false });
+  }
+
+  _onVerifySuccess() {
+    let productId = this.verifying;
+    let hodl = this.state.hodl.map(x => {
+      if (x.id === productId) return { ...x, verified: true, isLoading: false };
+      else return x;
+    });
+    this.verifying = null;
+    this.setState({ hodl, verifyModalOpen: false });
   }
 
   _onSaleSuccess() {
@@ -180,6 +191,7 @@ export class AccountPage extends React.Component {
         <VerifyModal
           isOpen={verifyModalOpen}
           onClose={() => this._closeAllModals()}
+          onSuccess={() => this._onVerifySuccess()}
         />
 
         <div class="expanded">
