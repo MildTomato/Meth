@@ -26,7 +26,7 @@ export class ProductPage extends React.Component {
         <div className="row row--section">
           <div className="columns large-4">
             <div className="thumb-container">
-              <img class="thumb thumb--blur" src={thumb} alt={title} width="100%"/>
+              <img className="thumb thumb--blur" src={thumb} alt={title} width="100%"/>
             </div>
           </div>
           <div className="columns large-8">
@@ -34,13 +34,13 @@ export class ProductPage extends React.Component {
             <h1>{title}</h1>
             <p>{description}</p>
 
-            <div class="row collapse">
-              <div class="large-6 columns">
-                <div class="input-group">
-                  <span class="input-group-label"><i class="fab fa-ethereum"></i>ETH</span>
-                  <input class="input-group-field" type="number"/>
-                  <div class="input-group-button">
-                    <input type="submit" class="button" value="Commit Bid"/>
+            <div className="row collapse">
+              <div className="large-6 columns">
+                <div className="input-group">
+                  <span className="input-group-label"><i className="fab fa-ethereum"></i>ETH</span>
+                  <input className="input-group-field" type="number"/>
+                  <div className="input-group-button">
+                    <input type="submit" className="button" value="Commit Bid"/>
                   </div>
                 </div>
               </div>

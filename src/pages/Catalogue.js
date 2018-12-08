@@ -20,6 +20,7 @@ export class CataloguePage extends React.Component {
           id={product.id}
           url={product.thumb}
           title={product.title}
+          description={this._truncate(product.description, 100)}
         />
       </div>
     ));
@@ -28,7 +29,7 @@ export class CataloguePage extends React.Component {
       <div id="CataloguePage">
       <div className="container">
         <div className="row row--section">
-          <div class="columns large-12">
+          <div className="columns large-12">
             <h1>Catalogue</h1>
           </div>
         </div>
@@ -39,6 +40,10 @@ export class CataloguePage extends React.Component {
       </div>
       </div>
     );
+  }
+
+  _truncate(string, n) {
+      return (string.length > n) ? string.substr(0, n-1) + ' ...' : string;
   }
 
 }

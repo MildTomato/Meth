@@ -68,16 +68,16 @@ export class AccountPage extends React.Component {
     return (
       <div id="AccountPage">
         <div className="row row--section">
-          <div class="columns large-6">
+          <div className="columns large-6">
             <h2>My Dashboard</h2>
           </div>
-          <div class="columns large-6 text-right">
+          <div className="columns large-6 text-right">
             <h3>Balance <b>0.234 ETH</b></h3>
           </div>
         </div>
 
         <div className="row">
-          <div class="columns large-12">
+          <div className="columns large-12">
             <div className="small button-group">
               <button
                 onClick={() => {
@@ -122,7 +122,7 @@ export class AccountPage extends React.Component {
         {currentView === VIEWS.HODL && (
           <div>
             <div className="row align-stretch">
-              <div class="columns large-12">
+              <div className="columns large-12">
                 <p>You hodl.</p>
               </div>
             </div>
@@ -132,10 +132,10 @@ export class AccountPage extends React.Component {
         {currentView === VIEWS.SENT && (
           <div>
             <div className="row align-stretch">
-              <div class="columns large-12">
+              <div className="columns large-12">
                 <p>You have sent {sent.length} bids.</p>
               </div>
-              <div class="columns large-12">
+              <div className="columns large-12">
                 {SentList}
               </div>
             </div>
@@ -145,10 +145,10 @@ export class AccountPage extends React.Component {
         {currentView === VIEWS.RECEIVED && (
           <div>
             <div className="row align-stretch">
-              <div class="columns large-12">
+              <div className="columns large-12">
                 <p>You have received {received.length} bids.</p>
               </div>
-              <div class="columns large-12">
+              <div className="columns large-12">
                 {ReceivedList}
               </div>
             </div>
