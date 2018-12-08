@@ -8,7 +8,7 @@ export class ProductPage extends React.Component {
     super(props);
     const { params } = props.match;
     let { productId } = params;
-    let product = data.find(x => (`${x.id}` === `${productId}`)) || null;
+    let product = data.find(x => `${x.id}` === `${productId}`) || null;
     let exists = product !== null;
     this.state = {
       id: productId,
@@ -21,17 +21,37 @@ export class ProductPage extends React.Component {
     const { product, exists } = this.state;
     if (!exists) return <NotFound />;
 
-    const { thumb, title, description } = product;
+    const { thumb, title, description, createdAt, lastSold } = product;
     return (
-      <div id="ProductPage">
-        <div className="media-object">
-          <div className="media-object-section">
-            <img src={thumb} alt={title} />
-          </div>
+      <div id="ProductPage" className="page">
+        <div className="row">
+          <div className="media-object">
+            <div className="media-object-section">
+              <img src={thumb} alt={title} />
+            </div>
 
-          <div className="media-object-section">
-            <h4>{title}</h4>
-            <p>{description}</p>
+            <div className="media-object-section">
+              <h4>{title}</h4>
+              <p>{description}</p>
+              <p>
+                <label>
+                  <input type="number" placeholder="ETH" />
+                  <button type="button" className="button">
+                    Commit Bid
+                  </button>
+                </label>
+              </p>
+              <p>
+                <small>Created At</small>
+                <br />
+                {createdAt}
+              </p>
+              <p>
+                <small>Last Sold</small>
+                <br />
+                {lastSold}
+              </p>
+            </div>
           </div>
         </div>
       </div>
