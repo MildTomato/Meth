@@ -3,6 +3,17 @@ import Modal from "react-modal";
 import { decrypt, encrypt, upload } from "../../lib/encryption";
 
 Modal.setAppElement("#root");
+const localStyles = {
+  content: {
+    width: "360px",
+    height: "600px",
+    top: "20px",
+    right: "20px",
+    bottom: "auto",
+    left: "auto",
+    zIndex: 99
+  }
+};
 
 export class ConfirmBidModal extends React.PureComponent {
   constructor(props) {
@@ -17,14 +28,21 @@ export class ConfirmBidModal extends React.PureComponent {
     let { isOpen, productId, onClose } = this.props;
 
     return (
-      <div style={{ display: "flex" }}>
-        <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Decrypt">
+      <div style={{ position: "relative", zIndex: 99 }}>
+        <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Confirm Bid"
+          style={localStyles}>
           <h2>Are you sure?</h2>
           {!isLoading ? (
             <div>
               <button
+                onClick={() => onClose()}
+                className="button expanded secondary"
+              >
+                Cancel
+              </button>
+              <button
                 onClick={() => this._onConfirmBid()}
-                className="button secondary"
+                className="button expanded secondary"
               >
                 Accept
               </button>

@@ -178,6 +178,14 @@ button:focus {outline:0;}
   background: #E5E5E5;
   padding: 30px 0;
 }
+#NavBar {
+  position: relative;
+  z-index: 3;
+}
+.ReactModalPortal {
+  position: relative;
+  z-index: 99;
+}
 
 .hero {
   top: -90px;
