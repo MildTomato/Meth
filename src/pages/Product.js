@@ -6,13 +6,10 @@ import { NotFound } from "../components/pure/NotFound.js";
 export class ProductPage extends React.Component {
   constructor(props) {
     super(props);
-
     const { params } = props.match;
-    console.log("params", params);
     let { productId } = params;
-    let product = data.find(x => x.id === productId) || null;
+    let product = data.find(x => (`${x.id}` === `${productId}`)) || null;
     let exists = product !== null;
-    console.log("exists", exists);
     this.state = {
       id: productId,
       product,
