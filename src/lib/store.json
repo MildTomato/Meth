@@ -1,0 +1,74 @@
+{
+  "account": {
+    "userId": "ALICE"
+  },
+  "users": {
+    "ALICE": {
+      "id": "ALICE",
+      "hodl": [1, 2, 3, 4]
+    },
+    "BARRY": {
+      "id": "BARRY",
+      "hodl": [5, 6, 7]
+    }
+  },
+  "bids": [
+    {
+      "id": "hzdfkguhd",
+      "productId": 1,
+      "wei": 1000000000000000000,
+      "type": "SENT",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "sdlfjhhwei",
+      "productId": 2,
+      "wei": 2000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "dfgkjgert",
+      "productId": 3,
+      "wei": 3000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "aewiuwoief",
+      "productId": 4,
+      "wei": 4000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    
+    {
+      "id": "45645646",
+      "productId": 5,
+      "wei": 1000000000000000000,
+      "type": "SENT",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    },
+    {
+      "id": "34534554",
+      "productId": 6,
+      "wei": 2000000000000000000,
+      "type": "RECIEVED",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    },
+    {
+      "id": "55675667",
+      "productId": 7,
+      "wei": 3000000000000000000,
+      "type": "RECIEVED",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    }
+  ]
+}

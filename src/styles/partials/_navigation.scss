@@ -1,0 +1,14 @@
+.test-class {
+	background: black;
+}
+
+.top-bar {
+	z-index: 100;
+	top: 0;
+    position: relative;
+}
+
+.top-bar__logo a {
+	padding: 0 !important;
+	margin-right: 32px;
+}
