@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export class Hero extends React.PureComponent {
   render() {
     return (
-      <div id="Hero">
+      <div className="hero">
         <div className="row">
           <div className="column">
             <h1>Sell your misleading thumbnails</h1>
-            <Link to={`/catalogue`} className="button" type="a">
+            <Link to={`/catalogue`} className="button large" type="a">
               Commit Bid
             </Link>
           </div>
