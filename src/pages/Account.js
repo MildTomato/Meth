@@ -1,6 +1,5 @@
 import React from "react";
-import { BidsSent } from "../components/account/BidsSent.js";
-import { BidsReceived } from "../components/account/BidsReceived.js";
+import { Bids } from "../components/account/Bids.js";
 import { Hodl } from "../components/account/Hodl.js";
 
 const VIEWS = {
@@ -66,12 +65,12 @@ export class AccountPage extends React.Component {
         )}
         {currentView === VIEWS.SENT && (
           <div className="row">
-            <BidsSent />
+            <Bids type="SENT" />
           </div>
         )}
         {currentView === VIEWS.RECEIVED && (
           <div className="row">
-            <BidsReceived />
+            <Bids type="RECEIVED" />
           </div>
         )}
       </div>

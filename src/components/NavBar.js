@@ -17,7 +17,7 @@ export class NavBar extends React.Component {
             <li><Link to={`/catalogue`} className="">Catalogue</Link></li>
             <li><input type="search" placeholder="Search" /></li>
             <li><button type="button" className="button">Search</button></li>
-            <li><Link to={`/account`} className="">Profile</Link></li>
+            <li><Link to={`/account`} className="">Account</Link></li>
           </ul>
         </div>
       </div>

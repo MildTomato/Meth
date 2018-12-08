@@ -1,6 +1,5 @@
 import React from "react";
 import products from "../lib/products.json";
-
 import { NotFound } from "../components/pure/NotFound.js";
 
 export class ProductPage extends React.Component {
