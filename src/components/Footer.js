@@ -6,13 +6,11 @@ export class Footer extends React.Component {
     
     return (
       <footer className="footer">
-          <div className="grid-container">
-            <div className="grid-x">
-              <div className="cell small-6">Footer</div>
-              <div className="cell small-6">
+          <div className="container">
+            <div className="row">
+              <div className="columns small-6">Footer</div>
+              <div className="columns small-6">
               Links
-              <br />
-              <Link to={`/product`} className="">Product</Link>
               </div>
             </div>
           </div>

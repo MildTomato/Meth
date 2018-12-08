@@ -29,7 +29,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/account" component={AccountPage} />
                 <Route exact path="/catalogue" component={CataloguePage} />
-                <Route exact path="/product" component={ProductPage} />
+                <Route exact path="/product/:id" component={ProductPage} />
                 <Route component={NotFoundPage} />
               </Switch>
             </div>

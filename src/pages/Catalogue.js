@@ -1,34 +1,37 @@
 import React from "react";
+import data from "../lib/data.json";
 
-import { ProductCard } from "../components/pure/ProductCard.js";
+import { ProductCard } from "../components/pure/ProductCard";
 
 export class CataloguePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      products: data
+    };
   }
 
   render() {
-    // const { } = this.state;
+    const { products } = this.state;
+    
+    let ProductList = products.map(product => (
+      <ProductCard
+        id={product.id}
+        key={product.id}
+        url={product.thumb}
+        title={product.title}
+      />
+    ));
+
     return (
       <div id="CataloguePage">
         <h1>Catalogue</h1>
 
         <div className="grid-x grid-margin-x">
-          <ProductCard
-            url="https://placeimg.com/200/200/people"
-            title="Misleading 1"
-          />
-          <ProductCard
-            url="https://placeimg.com/200/200/people"
-            title="Misleading 2"
-          />
-          <ProductCard
-            url="https://placeimg.com/200/200/people"
-            title="Misleading 3"
-          />
+          {ProductList}
         </div>
       </div>
     );
   }
+
 }
