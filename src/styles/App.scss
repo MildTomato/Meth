@@ -87,6 +87,15 @@
 @import "partials/typography.scss";
 
 
+.product-card {
+  .product-card__thumbnail {
+    width: 100%;
+  } 
+
+  h4 {
+    margin-top: $global-margin;
+  }
+}
 
 
 .App {

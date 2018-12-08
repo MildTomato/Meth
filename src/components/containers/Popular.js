@@ -14,7 +14,7 @@ export class Popular extends React.Component {
     const { products } = this.state
 
     let ProductList = products.map(product => (
-      <div className="columns small-6 medium-4 " key={`product.${product.id}`}>
+      <div className="columns small-6 medium-4 large-3" key={`product.${product.id}`}>
         <ProductCard
           id={product.id}
           url={product.thumb}
@@ -23,12 +23,16 @@ export class Popular extends React.Component {
       </div>
     ));
     return (
-      <div className="row">
-        <h3>Most Bidded Thumbs</h3>
+      <div className="row row--section">
+      <div className="columns small-12">
+        <h3 class="row--section__title">
+          Most Bidded Thumbs
+        </h3>
+      </div>
           
-        <div className="row">
-          {ProductList}
-        </div>
+        
+        {ProductList}
+        
 
       </div>
     );

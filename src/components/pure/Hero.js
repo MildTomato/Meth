@@ -7,7 +7,7 @@ export class Hero extends React.PureComponent {
       <div className="hero">
         <div className="row">
           <div className="column">
-            <h1>Sell your misleading thumbnails</h1>
+            <h1>Sell Your Misleading Thumbnails</h1>
             <Link to={`/catalogue`} className="button large" type="a">
               Commit Bid
             </Link>
