@@ -1,5 +1,5 @@
 import React from "react";
-import store from "../lib/store.json";
+import store from "../lib/store";
 import products from "../lib/products.json";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";

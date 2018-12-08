@@ -1,7 +1,15 @@
-{
+/**
+ * This is a completely Mock store - all data is fake
+ */
+
+const store = {
+
+  // Logged in User info
   "account": {
     "userId": "ALICE"
   },
+
+  // Fake users 
   "users": {
     "ALICE": {
       "id": "ALICE",
@@ -18,6 +26,8 @@
       "privKey": "fcc244270d06217ae16a4420902a71d3973dfcff9a8cc7135ec8a0d3e5425c71"
     }
   },
+
+  // Fake transactions
   "bids": [
     {
       "id": "hzdfkguhd",
@@ -78,3 +88,4 @@
     }
   ]
 }
+export default store
