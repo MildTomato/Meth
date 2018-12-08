@@ -15,7 +15,7 @@ export class CataloguePage extends React.Component {
     const { products } = this.state;
     
     let ProductList = products.map(product => (
-      <div className="columns  small-6  medium-4 ">
+      <div className="columns small-6  medium-4 ">
         <ProductCard
           id={product.id}
           key={product.id}
@@ -28,7 +28,9 @@ export class CataloguePage extends React.Component {
     return (
       <div id="CataloguePage">
       <div className="container">
-        <h1>Catalogue</h1>
+        <div className="row">
+          <h1>Catalogue</h1>
+        </div>
 
         <div className="row">
           {ProductList}
