@@ -7,9 +7,10 @@ export class ProductCard extends React.PureComponent {
     	<Link to={`/product/${id}`}>
     	<div class="product-card">
 	  		
-	     	
-	    	<img className="product-card__thumbnail" src={url} alt={title} />
-	  			
+	     	<div class="thumb-container">
+	    		<img className="product-card__thumbnail thumb thumb--blur" src={url} alt={title} />
+	  		</div>
+
    			<h4>{title}</h4>
    			<p>description</p>
 	  							

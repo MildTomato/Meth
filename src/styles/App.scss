@@ -97,6 +97,15 @@
   }
 }
 
+.thumb-container {
+  border: 1px solid $light-gray;
+  overflow: hidden;
+}
+
+.thumb--blur {
+  filter: blur(8px);
+}
+
 
 .App {
   text-align: center;
