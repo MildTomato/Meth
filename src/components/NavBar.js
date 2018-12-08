@@ -9,14 +9,14 @@ export class NavBar extends React.Component {
       <div className="top-bar row">
         <div className="top-bar-left">
           <ul className="dropdown menu" data-dropdown-menu>
-            <li class="top-bar__logo">
+            <li className="top-bar__logo">
               <Link to={`/`} className="">
                 <img src={logo} width="96" alt="METH"/>
               </Link>
             </li>
             <li>
               <a href="#">
-                <i class="fas fa-circle text-success" /> Network Good
+                <i className="fas fa-circle text-success" /> Network Good
               </a>
             </li>
           </ul>
@@ -25,17 +25,17 @@ export class NavBar extends React.Component {
           <ul className="menu">
             <li>
               <Link to={`/catalogue`} className="">
-                <i class="fas fa-book-open" /> Catalogue
+                <i className="fas fa-book-open" /> Catalogue
               </Link>
             </li>
             <li>
               <Link to={`/catalogue`} className="">
-                <i class="fas fa-search" /> Search
+                <i className="fas fa-search" /> Search
               </Link>
             </li>
             <li>
               <Link to={`/account`} className="">
-                <i class="far fa-user-circle" /> Account
+                <i className="far fa-user-circle" /> Account
               </Link>
             </li>
           </ul>
