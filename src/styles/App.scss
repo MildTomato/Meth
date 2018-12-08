@@ -85,6 +85,7 @@
 @import "partials/layout.scss";
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
+@import "partials/animation.scss";
 
 .button-group--underline {
   border-bottom: 1px solid $light-gray;
@@ -93,7 +94,7 @@
     border: none !important;
     padding-left: 0;
     padding-right: 0;
-    margin-right: $global-margin;
+    margin-right: $global-margin * 2;
     bottom: -1px;
     position: relative;
   }
@@ -117,6 +118,14 @@
 
 .button {
   font-weight: 600;
+
+  &.alert {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
 }
 
 button:focus {outline:0;}
@@ -182,4 +191,8 @@ button:focus {outline:0;}
   background-color: #EBEBEB;
   padding-top: 196px;
   padding-bottom: 196px;
+
+  // h1 {
+  //   font-size: 60px;
+  // }
 }
