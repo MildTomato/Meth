@@ -37,7 +37,7 @@ export class ProductPage extends React.Component {
             <div className="row collapse">
               <div className="large-6 columns">
                 <div className="input-group">
-                  <span className="input-group-label"><i className="fab fa-ethereum"></i>ETH</span>
+                  <span className="input-group-label"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>ETH</span>
                   <input className="input-group-field" type="number"/>
                   <div className="input-group-button">
                     <input type="submit" className="button" value="Commit Bid"/>

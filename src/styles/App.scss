@@ -85,6 +85,7 @@
 @import "partials/layout.scss";
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
+@import "partials/animation.scss";
 
 .button-group--underline {
   border-bottom: 1px solid $light-gray;
@@ -93,7 +94,7 @@
     border: none !important;
     padding-left: 0;
     padding-right: 0;
-    margin-right: $global-margin;
+    margin-right: $global-margin * 2;
     bottom: -1px;
     position: relative;
   }
@@ -117,6 +118,14 @@
 
 .button {
   font-weight: 600;
+
+  &.alert {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
 }
 
 button:focus {outline:0;}
@@ -124,6 +133,7 @@ button:focus {outline:0;}
 .thumb-container {
   border: 1px solid $light-gray;
   overflow: hidden;
+  position: relative;
 }
 
 .thumb--blur {
@@ -168,10 +178,33 @@ button:focus {outline:0;}
   background: #E5E5E5;
   padding: 30px 0;
 }
+#NavBar {
+  position: relative;
+  z-index: 3;
+}
+.ReactModalPortal {
+  position: relative;
+  z-index: 99;
+}
 
 .hero {
   top: -90px;
   background-color: #EBEBEB;
   padding-top: 196px;
   padding-bottom: 196px;
+
+  // h1 {
+  //   font-size: 60px;
+  // }
+}
+
+
+
+.ReactModal__Overlay {
+  background: none !important;
+}
+
+.ReactModal__Content {
+  width: 360px;
+  height: 600px;
 }

@@ -1,21 +1,19 @@
 import React from "react";
 import Modal from "react-modal";
-import { decrypt } from "../../lib/encryption";
+import { decryptMock } from "../../lib/encryption";
 
 Modal.setAppElement("#root");
-// const localStyles = {
-//   container: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   },
-//   modal: {
-//     content: {
-//       maxWidth: "400px",
-//       maxHeight: "600px"
-//     }
-//   }
-// }
+const localStyles = {
+  content: {
+    width: "360px",
+    height: "600px",
+    top: "20px",
+    right: "20px",
+    bottom: "auto",
+    left: "auto",
+    zIndex: 99
+  }
+};
 
 export class DecryptModal extends React.PureComponent {
   constructor(props) {
@@ -29,14 +27,25 @@ export class DecryptModal extends React.PureComponent {
     let { isOpen, productId, onClose } = this.props;
 
     return (
-      <div style={{ display: "flex" }}>
-        <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Decrypt">
+      <div style={{ position: "relative", zIndex: 99 }}>
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={onClose}
+          contentLabel="Decrypt"
+          style={localStyles}
+        >
           <h2>Decrypt</h2>
           {!isLoading ? (
             <div>
+            <button
+              onClick={() => onClose()}
+              className="button expanded secondary"
+            >
+              Cancel
+            </button>
               <button
                 onClick={() => this._onDecryptClick()}
-                className="button secondary"
+                className="button expanded secondary"
               >
                 Decrypt
               </button>
@@ -53,7 +62,7 @@ export class DecryptModal extends React.PureComponent {
     let { onSuccess, onFail } = this.props;
     try {
       this.setState({ isLoading: true });
-      let decrypted = await decrypt();
+      let decrypted = await decryptMock();
       console.log("decrypted", decrypted);
       return onSuccess(decrypted);
     } catch (error) {

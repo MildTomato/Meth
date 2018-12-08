@@ -38,6 +38,7 @@ export class AccountPage extends React.Component {
     this.onDecryptionSuccess = this.onDecryptionSuccess.bind(this);
   }
 
+
   onDecryptionSuccess() {
     let productId = this.decrypting;
     let hodl = this.state.hodl.map(x => {
@@ -71,10 +72,12 @@ export class AccountPage extends React.Component {
         <DecryptModal
           isOpen={decryptModalOpen}
           onSuccess={() => this.onDecryptionSuccess()}
+          onClose={() => this._closeAllModals()}
         />
         <ConfirmBidModal
           isOpen={confirmModalOpen}
           onSuccess={() => this.onSaleSuccess()}
+          onClose={() => this._closeAllModals()}
         />
 
         <div className="row row--section">
@@ -175,6 +178,13 @@ export class AccountPage extends React.Component {
         )}
       </div>
     );
+  }
+
+  _closeAllModals() {
+    this.setState({
+      decryptModalOpen: false,
+      confirmModalOpen: false,
+    })
   }
 
   _renderHodlList(hodl) {

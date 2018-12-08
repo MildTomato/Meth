@@ -6,7 +6,7 @@ import logo from "./../logo.png";
 export class NavBar extends React.Component {
   render() {
     return (
-      <div className="top-bar row">
+      <div id="NavBar" className="top-bar row">
         <div className="top-bar-left">
           <ul className="dropdown menu" data-dropdown-menu>
             <li className="top-bar__logo">
@@ -16,7 +16,7 @@ export class NavBar extends React.Component {
             </li>
             <li>
               <a href="#">
-                <i className="fas fa-circle text-success" /> Network Good
+                <i className="fas fa-circle text-success" style={{marginLeft: 16, marginRight: 8}}/> Network Good
               </a>
             </li>
           </ul>
@@ -25,17 +25,17 @@ export class NavBar extends React.Component {
           <ul className="menu">
             <li>
               <Link to={`/catalogue`} className="">
-                <i className="fas fa-book-open" /> Catalogue
+                <i className="fas fa-book-open" style={{marginRight: 8}}/> Catalogue
               </Link>
             </li>
             <li>
               <Link to={`/catalogue`} className="">
-                <i className="fas fa-search" /> Search
+                <i className="fas fa-search" style={{marginRight: 8}}/> Search
               </Link>
             </li>
             <li>
               <Link to={`/account`} className="">
-                <i className="far fa-user-circle" /> Account
+                <i className="far fa-user-circle" style={{marginRight: 8}}/> Account
               </Link>
             </li>
           </ul>
