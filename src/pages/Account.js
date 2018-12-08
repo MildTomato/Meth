@@ -22,7 +22,7 @@ export class AccountPage extends React.Component {
     let hodl = (user.hodl || []).map(x => {
       let product = products.find(p => `${p.id}` === `${x}`) || null;
       if (product === null) return null;
-      return { ...product, decrypted: false };
+      return { ...product, decrypted: false, isLoading: false };
     });
     this.state = {
       decryptModalOpen: false,
@@ -38,11 +38,10 @@ export class AccountPage extends React.Component {
     this.onDecryptionSuccess = this.onDecryptionSuccess.bind(this);
   }
 
-
   onDecryptionSuccess() {
     let productId = this.decrypting;
     let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return { ...x, decrypted: true };
+      if (x.id === productId) return { ...x, decrypted: true, isLoading: false };
       else return x;
     });
     this.decrypting = null;
@@ -72,29 +71,31 @@ export class AccountPage extends React.Component {
         <DecryptModal
           isOpen={decryptModalOpen}
           onSuccess={() => this.onDecryptionSuccess()}
-          onClose={() => this._closeAllModals()}
         />
         <ConfirmBidModal
           isOpen={confirmModalOpen}
           onSuccess={() => this.onSaleSuccess()}
-          onClose={() => this._closeAllModals()}
         />
 
+        <div class="expanded">
         <div className="row row--section">
           <div className="columns large-6">
-            <h2>My Dashboard</h2>
+            <h5>My Dashboard</h5>
           </div>
           <div className="columns large-6 text-right">
-            <h3>
+            <h5>
               <span className="text-light">Balance </span>
               <b>0.234 ETH</b>
-            </h3>
+            </h5>
+            <h1><i class="fas fa-wallet"></i></h1>
           </div>
         </div>
+        </div>
 
+        <div class="expanded">
         <div className="row">
           <div className="columns large-12">
-            <div className="button-group large button-group--underline">
+            <div className="button-group button-group--underline">
               <button
                 onClick={() => {
                   this.setState({ currentView: VIEWS.HODL });
@@ -138,12 +139,13 @@ export class AccountPage extends React.Component {
             </div>
           </div>
         </div>
+        </div>
 
         {currentView === VIEWS.HODL && (
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{ marginTop: 16 }}>You hodl {sent.length} items.</p>
+                <p style={{ marginTop: 16, marginBottom: 32 }}>You hodl {sent.length} items.</p>
               </div>
             </div>
 
@@ -180,22 +182,15 @@ export class AccountPage extends React.Component {
     );
   }
 
-  _closeAllModals() {
-    this.setState({
-      decryptModalOpen: false,
-      confirmModalOpen: false,
-    })
-  }
-
   _renderHodlList(hodl) {
     return hodl.map(product => {
       return (
-        <div className="columns small-6 medium-3" key={`hodl.${product.id}`}>
+        <div className="columns small-6 medium-3 account-product-thumb" key={`hodl.${product.id}`}>
           <button
             className="button expanded"
             onClick={() => this._decrypt(product.id)}
           >
-            Unlock
+            <i class="fas fa-lock" style={{marginRight: 16}}></i> Unlock
           </button>
           <ProductCard
             id={product.id}
@@ -249,8 +244,12 @@ export class AccountPage extends React.Component {
   }
 
   _decrypt(productId) {
+    let hodl = this.state.hodl.map(x => {
+      if (x.id === productId) return {...x, isLoading: true}
+        else return x
+    })
     this.decrypting = productId;
-    this.setState({ decryptModalOpen: true });
+    this.setState({ decryptModalOpen: true, hodl });
   }
 
   _confirmBid(bidId) {

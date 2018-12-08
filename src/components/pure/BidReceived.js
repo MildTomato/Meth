@@ -12,17 +12,19 @@ export class BidReceived extends React.PureComponent {
             <b className="text-dark">{title}</b>
             <p>Description can go here</p>
           </div>
-          <div className="column align-self-middle text-right">
-            <h5 className="text-dark">
+          <div className="column shrink align-self-middle text-right">
+            <p className="text-dark">
             <i className="far fa-clock" style={{marginRight: 16}}></i>
-              <span className="h4">12</span>h
-              <span className="h4">12</span>m
-              <span className="h4">12</span>s
-            </h5>
+              <span className="h5">12</span>h
+              <span className="h5">12</span>m
+              <span className="h5">12</span>s
+            </p>
           </div>
-          <div className="column align-self-middle"><h3 className="text-dark"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h3></div>
-          <div className="column large-4 text-right">
-            <div className="button-group large">
+          <div className="column shrink text-right">
+            <h5 className="text-dark"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h5>
+          </div>
+          <div className="column shrink large-4 text-right">
+            <div className="button-group">
               <button className="button hvr-icon-grow" onClick={onAccept}><i className="far fa-check-circle hvr-icon" style={{marginRight: 8}}></i> Accept Bid</button>
               <button className="button alert hvr-icon-grow" onClick={onDecline}><i className="far fa-times-circle hvr-icon"></i></button>
             </div>

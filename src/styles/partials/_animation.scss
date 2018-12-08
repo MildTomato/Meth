@@ -57,6 +57,8 @@
 
 $total-items: 5;
 
+$total-account-thumb-items: 5;
+
 ul {
 /*  width: 300px;
   position: absolute;
@@ -65,19 +67,17 @@ ul {
   margin-left: -150px;*/
 }
 
-div:not(.spinner, .cube1, .cube2) {
+.row--acount-item {
   animation: fadeIn 0.5s linear;
   animation-fill-mode: both;
 }
 
-.row--acount-item {
-/*  position: relative;
-  display: block;
-  border: 1px solid hotpink;
-  margin-bottom: 5px;
-  padding: 10px;
-  text-align: center;
-  text-transform: uppercase;*/
+.account-product-thumb {
+  animation: fadeIn 0.5s linear;
+  animation-fill-mode: both;
+}
+
+div:not(.spinner):not(.cube1):not(.cube2):not(.row--acount-item) {
   animation: fadeIn 0.5s linear;
   animation-fill-mode: both;
 }
@@ -85,6 +85,13 @@ div:not(.spinner, .cube1, .cube2) {
 // Set delay per List Item
 @for $i from 1 through $total-items {
   .row--acount-item:nth-child(#{$i}) {
+    animation-delay: .25s * $i;
+  }
+}
+
+// Set delay per List Item
+@for $i from 1 through $total-account-thumb-items {
+  .account-product-thumb:nth-child(#{$i}) {
     animation-delay: .25s * $i;
   }
 }

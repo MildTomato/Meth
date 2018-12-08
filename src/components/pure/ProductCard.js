@@ -33,8 +33,8 @@ export class ProductCard extends React.PureComponent {
         )
         : null}
 
-        <h4>{title}</h4>
-        <p>{truncated}</p>
+        <p style={{marginTop: 16}}>{title}</p>
+        <small>{truncated}</small>
       </div>
     );
   }

@@ -12,15 +12,15 @@ export class BidSent extends React.PureComponent {
             <b class="text-primary">{title}</b>
             <p>Description can go here</p>
           </div>
-          <div className="column align-self-middle"><h3 className="text-primary"><i class="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h3></div>
-          <div className="column shrink align-self-middle"><h5>Waiting For Response</h5></div>
+          <div className="column shrink align-self-middle"><h5 className="text-primary"><i class="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h5></div>
+          <div className="column shrink align-self-middle"><p>Waiting For Response</p></div>
           <div className="column shrink align-self-middle text-right">
-            <h5 className="text-primary">
+            <p className="text-primary">
             <i className="far fa-clock" style={{marginRight: 16}}></i>
-              <span className="h4">12</span>h
-              <span className="h4">12</span>m
-              <span className="h4">12</span>s
-            </h5>
+              <span className="h5">12</span>h
+              <span className="h5">12</span>m
+              <span className="h5">12</span>s
+            </p>
           </div>
         </div>
     );
