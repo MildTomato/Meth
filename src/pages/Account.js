@@ -262,7 +262,7 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{ marginTop: 48, marginTop: 16 }}>
+                <p style={{ marginTop: 48, marginBottom: 16 }}>
                   You have sent {sent.length} bids.
                 </p>
               </div>
@@ -275,7 +275,7 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{ marginTop: 48, marginTop: 16 }}>
+                <p style={{ marginTop: 48, marginBottom: 16 }}>
                   You have received {received.length} bids.
                 </p>
               </div>
@@ -285,80 +285,5 @@ export class AccountPage extends React.Component {
         )}
       </div>
     );
-  }
-
-
-  _renderHodlList(hodl) {
-    return hodl.map(product => {
-      return (
-        <div className="columns small-6 medium-3 account-product-thumb" key={`hodl.${product.id}`}>
-          <button
-            className="button expanded"
-            onClick={() => this._decrypt(product.id)}
-          >
-            <i class="fas fa-lock" style={{marginRight: 16}}></i> Unlock
-          </button>
-          <ProductCard
-            id={product.id}
-            url={product.thumb}
-            title={product.title}
-            decrypted={product.decrypted}
-          />
-        </div>
-      );
-    });
-  }
-
-  _renderReceivedList(received) {
-    return received.map(bid => {
-      let product =
-        products.find(p => `${p.id}` === `${bid.productId}`) || null;
-      if (product === null) return null;
-      return (
-        <BidReceived
-          id={bid.id}
-          title={product.title}
-          key={bid.id}
-          thumb={product.thumb}
-          wei={bid.wei}
-          onAccept={() => {
-            this._confirmBid(bid.id)
-          }}
-          onDecline={() => {
-            alert("Declined");
-          }}
-        />
-      );
-    });
-  }
-
-  _renderSentList(sent) {
-    return sent.map(bid => {
-      let product =
-        products.find(p => `${p.id}` === `${bid.productId}`) || null;
-      if (product === null) return null;
-      return (
-        <BidSent
-          id={bid.id}
-          title={product.title}
-          key={bid.id}
-          thumb={product.thumb}
-          wei={bid.wei}
-        />
-      );
-    });
-  }
-
-  _decrypt(productId) {
-    let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return {...x, isLoading: true}
-        else return x
-    })
-    this.decrypting = productId;
-    this.setState({ decryptModalOpen: true, hodl });
-  }
-
-  _confirmBid(bidId) {
-    this.setState({ confirmModalOpen: true });
   }
 }
