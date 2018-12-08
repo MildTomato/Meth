@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../lib/data.json";
+import products from "../../lib/products.json";
 import { ProductCard } from "../pure/ProductCard";
 
 export class Popular extends React.Component {
@@ -7,7 +7,7 @@ export class Popular extends React.Component {
     super(props);
     let { limit } = this.props
     this.state = {
-      products: data.slice(0, limit)
+      products: products.slice(0, limit)
     };
   }
   render() {

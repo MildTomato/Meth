@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../lib/data.json";
+import products from "../lib/products.json";
 
 import { ProductCard } from "../components/pure/ProductCard";
 
@@ -7,7 +7,7 @@ export class CataloguePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: data
+      products: products
     };
   }
 
