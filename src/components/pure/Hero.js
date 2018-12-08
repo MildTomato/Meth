@@ -15,7 +15,7 @@ export class Hero extends React.PureComponent {
               Sell Your <br /> 
               </h2>
           </div>
-          <div class="column small-12 large-4">
+          <div className="column small-12 large-4">
           <h2 className="text-primary">
               [M]isleading <br />
               [E]ncrypted <br />
@@ -28,10 +28,10 @@ export class Hero extends React.PureComponent {
 
           <div className="column small-12 large-12">
             <Link to={`/catalogue`} className="button large" type="a">
-              <i class="fas fa-book-open" style={{marginRight: 8}}></i> Explore Thumbnails
+              <i className="fas fa-book-open" style={{marginRight: 8}}></i> Explore Thumbnails
             </Link>
             <Link to={`/catalogue`} className="button large hollow" type="a">
-              <i class="fas fa-cloud-upload-alt" style={{marginRight: 8}}></i> Upload + Encrpyt
+              <i className="fas fa-cloud-upload-alt" style={{marginRight: 8}}></i> Upload + Encrpyt
             </Link>
             <br />
             <small style={{textDecoration: "underline"}}>Learn more about image encryption</small>

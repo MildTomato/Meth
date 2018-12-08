@@ -23,7 +23,12 @@ export class AccountPage extends React.Component {
     let hodl = (user.hodl || []).map(x => {
       let product = products.find(p => `${p.id}` === `${x}`) || null;
       if (product === null) return null;
-      return { ...product, decrypted: false, isLoading: false, isVerified: false };
+      return {
+        ...product,
+        decrypted: false,
+        isLoading: false,
+        isVerified: false
+      };
     });
     this.state = {
       decryptModalOpen: false,
@@ -44,7 +49,8 @@ export class AccountPage extends React.Component {
   _onDecryptionSuccess() {
     let productId = this.decrypting;
     let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return { ...x, decrypted: true, isLoading: false };
+      if (x.id === productId)
+        return { ...x, decrypted: true, isLoading: false };
       else return x;
     });
     this.decrypting = null;
@@ -54,7 +60,8 @@ export class AccountPage extends React.Component {
   _onVerifySuccess() {
     let productId = this.verifying;
     let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return { ...x, verified: true, isLoading: false };
+      if (x.id === productId)
+        return { ...x, isVerified: true, isLoading: false };
       else return x;
     });
     this.verifying = null;
@@ -66,46 +73,46 @@ export class AccountPage extends React.Component {
   }
 
   _closeAllModals() {
-    let hodl = this.state.hodl.map(x => ({...x, isLoading: false}))
+    let hodl = this.state.hodl.map(x => ({ ...x, isLoading: false }));
     this.setState({
       hodl,
       decryptModalOpen: false,
       confirmModalOpen: false,
-      verifyModalOpen: false,
-    })
+      verifyModalOpen: false
+    });
   }
 
   _renderHodlList(hodl) {
     return hodl.map(product => {
-
-      let isVerified = false;
       return (
         <div className="columns small-6 medium-3" key={`hodl.${product.id}`}>
           <button
             className="button small-6 column"
             onClick={() => this._decrypt(product.id)}
-            style={{width: "50%"}}
+            style={{ width: "50%" }}
           >
-            <i class="fas fa-clipboard-check" style={{marginRight: 16}}></i> Unlock
+            <i className="fas fa-clipboard-check" style={{ marginRight: 16 }} />{" "}
+            Unlock
           </button>
-          { isVerified ? (
+          {product.isVerified ? (
             <button
-            disabled
-            className="button small-6 column hollow disabled"
-            onClick={() => this._verify(product.id)}
-            style={{width: "50%"}}
-          >
-            <i class="fas fa-check-circle" style={{marginRight: 16}}></i> Verified
-          </button>
-            ) : (
-              <button
-                className="button small-6 column hollow"
-                onClick={() => this._verify(product.id)}
-                style={{width: "50%"}}
-              >
-                <i class="fas fa-clipboard-check" style={{marginRight: 16}}></i> Verify
-              </button>
-            )}
+              disabled
+              className="button small-6 column hollow disabled"
+              style={{ width: "50%" }}
+            >
+              <i className="fas fa-check-circle" style={{ marginRight: 16 }} />{" "}
+              Verified
+            </button>
+          ) : (
+            <button
+              className="button small-6 column hollow"
+              onClick={() => this._verify(product.id)}
+              style={{ width: "50%" }}
+            >
+              <i className="fas fa-clipboard-check" style={{ marginRight: 16 }} />{" "}
+              Verify
+            </button>
+          )}
           <ProductCard
             id={product.id}
             url={product.thumb}
@@ -131,7 +138,7 @@ export class AccountPage extends React.Component {
           thumb={product.thumb}
           wei={bid.wei}
           onAccept={() => {
-            this._confirmBid(bid.id)
+            this._confirmBid(bid.id);
           }}
           onDecline={() => {
             alert("Declined");
@@ -161,9 +168,9 @@ export class AccountPage extends React.Component {
   _decrypt(productId) {
     this.decrypting = productId;
     let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return {...x, isLoading: true}
-      else return x
-    })
+      if (x.id === productId) return { ...x, isLoading: true };
+      else return x;
+    });
     this.setState({ hodl, decryptModalOpen: true });
   }
 
@@ -174,12 +181,11 @@ export class AccountPage extends React.Component {
   _verify(productId) {
     this.verifying = productId;
     let hodl = this.state.hodl.map(x => {
-      if (x.id === productId) return {...x, isLoading: true}
-      else return x
-    })
+      if (x.id === productId) return { ...x, isLoading: true };
+      else return x;
+    });
     this.setState({ hodl, verifyModalOpen: true });
   }
-
 
   render() {
     const {
@@ -214,75 +220,79 @@ export class AccountPage extends React.Component {
           onSuccess={() => this._onVerifySuccess()}
         />
 
-        <div class="expanded">
-        <div className="row row--section">
-          <div className="columns large-6">
-            <h5>My Dashboard</h5>
-          </div>
-          <div className="columns large-6 text-right">
-            <p class="h5">
-              <span className="text-light">Balance </span>
-              <b>0.234 ETH</b>
-            </p>
-            <span class="h1"><i class="fas fa-wallet"></i></span>
-          </div>
-        </div>
-        </div>
-
-        <div class="expanded">
-        <div className="row">
-          <div className="columns large-12">
-            <div className="button-group button-group--underline">
-              <button
-                onClick={() => {
-                  this.setState({ currentView: VIEWS.HODL });
-                }}
-                className={
-                  currentView === VIEWS.HODL
-                    ? "button button--active"
-                    : "button secondary hollow"
-                }
-              >
-                Images you HODL
-              </button>
-              <button
-                onClick={() => {
-                  this.setState({ currentView: VIEWS.SENT });
-                }}
-                className={
-                  currentView === VIEWS.SENT
-                    ? "button button--active"
-                    : "button secondary hollow"
-                }
-              >
-                Bids Sent
-              </button>
-              <button
-                onClick={() => {
-                  this.setState({ currentView: VIEWS.RECEIVED });
-                }}
-                className={
-                  currentView === VIEWS.RECEIVED
-                    ? "button button--active"
-                    : "button secondary hollow"
-                }
-              >
-                Bids Received
-              </button>
-
-              <button className="button secondary hollow text-right">
-                <i className="fas fa-cog" /> Settings
-              </button>
+        <div className="expanded">
+          <div className="row row--section">
+            <div className="columns large-6">
+              <h5>My Dashboard</h5>
+            </div>
+            <div className="columns large-6 text-right">
+              <p className="h5">
+                <span className="text-light">Balance </span>
+                <b>0.234 ETH</b>
+              </p>
+              <span className="h1">
+                <i className="fas fa-wallet" />
+              </span>
             </div>
           </div>
         </div>
+
+        <div className="expanded">
+          <div className="row">
+            <div className="columns large-12">
+              <div className="button-group button-group--underline">
+                <button
+                  onClick={() => {
+                    this.setState({ currentView: VIEWS.HODL });
+                  }}
+                  className={
+                    currentView === VIEWS.HODL
+                      ? "button button--active"
+                      : "button secondary hollow"
+                  }
+                >
+                  Images you HODL
+                </button>
+                <button
+                  onClick={() => {
+                    this.setState({ currentView: VIEWS.SENT });
+                  }}
+                  className={
+                    currentView === VIEWS.SENT
+                      ? "button button--active"
+                      : "button secondary hollow"
+                  }
+                >
+                  Bids Sent
+                </button>
+                <button
+                  onClick={() => {
+                    this.setState({ currentView: VIEWS.RECEIVED });
+                  }}
+                  className={
+                    currentView === VIEWS.RECEIVED
+                      ? "button button--active"
+                      : "button secondary hollow"
+                  }
+                >
+                  Bids Received
+                </button>
+
+                <button className="button secondary hollow text-right">
+                  <i className="fas fa-cog" /> Settings
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         {currentView === VIEWS.HODL && (
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p style={{ marginTop: 32, marginBottom: 32 }}>You hodl {sent.length} items.</p>
+                <p style={{ marginTop: 32, marginBottom: 32 }}>
+                  You hodl {sent.length} items.
+                </p>
               </div>
             </div>
 
