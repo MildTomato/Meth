@@ -152,13 +152,13 @@ div:not(.spinner, .cube1, .cube2) {
   top: 0;
   left: 0;
   
-  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
-  animation: sk-cubemove 1.8s infinite ease-in-out;
+  -webkit-animation: sk-cubemove 0.9s infinite ease-in-out;
+  animation: sk-cubemove 0.9s infinite ease-in-out;
 }
 
 .cube2 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
 }
 
 @-webkit-keyframes sk-cubemove {
