@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
-import { decrypt, encrypt, upload } from "../../lib/encryption";
+import { decryptMock, encryptMock, uploadMock } from "../../lib/encryption";
+import { fox } from "../../metamask.png";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -31,24 +32,25 @@ export class ConfirmBidModal extends React.PureComponent {
       <div style={{ position: "relative", zIndex: 99 }}>
         <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Confirm Bid"
           style={localStyles}>
+          <img src={fox}/>
           <h2>Are you sure?</h2>
           {!isLoading ? (
             <div>
+              <button
+                onClick={() => this._onConfirmBid()}
+                className="button expanded"
+              >
+                Accept
+              </button>
               <button
                 onClick={() => onClose()}
                 className="button expanded secondary"
               >
                 Cancel
               </button>
-              <button
-                onClick={() => this._onConfirmBid()}
-                className="button expanded secondary"
-              >
-                Accept
-              </button>
             </div>
           ) : (
-            <div>{currentState}.</div>
+            <div>{currentState}</div>
           )}
         </Modal>
       </div>
@@ -61,17 +63,17 @@ export class ConfirmBidModal extends React.PureComponent {
       // Decrypt the image
       let currentState = 'Decrypting ...'
       this.setState({ isLoading: true, currentState });
-      let decrypted = await decrypt();
+      let decrypted = await decryptMock();
 
       // Encrypt with new owner's pubkey
       currentState = `Encrypting with new owner's key ...`
       this.setState({ isLoading: true, currentState });
-      let encrypted = await encrypt(decrypted, pubKey);
+      let encrypted = await encryptMock(decrypted, pubKey);
 
       // Uploading to to IPFS
       currentState = `Uploading encrypted file to IPFS ...`
       this.setState({ isLoading: true, currentState });
-      let uploaded = await upload(encrypted);
+      let uploaded = await uploadMock(encrypted);
 
       // Finally finished
       return onSuccess(uploaded);

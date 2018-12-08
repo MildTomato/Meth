@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
-import { decrypt } from "../../lib/encryption";
+import { decryptMock } from "../../lib/encryption";
+import { fox } from "../../metamask.png";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -34,21 +35,22 @@ export class DecryptModal extends React.PureComponent {
           contentLabel="Decrypt"
           style={localStyles}
         >
+          <img src={fox}/>
           <h2>Decrypt</h2>
           {!isLoading ? (
             <div>
+              <button
+                onClick={() => this._onDecryptClick()}
+                className="button expanded"
+              >
+                Decrypt
+              </button>
             <button
               onClick={() => onClose()}
               className="button expanded secondary"
             >
               Cancel
             </button>
-              <button
-                onClick={() => this._onDecryptClick()}
-                className="button expanded secondary"
-              >
-                Decrypt
-              </button>
             </div>
           ) : (
             <div>Decrypting ...</div>
@@ -62,7 +64,7 @@ export class DecryptModal extends React.PureComponent {
     let { onSuccess, onFail } = this.props;
     try {
       this.setState({ isLoading: true });
-      let decrypted = await decrypt();
+      let decrypted = await decryptMock();
       console.log("decrypted", decrypted);
       return onSuccess(decrypted);
     } catch (error) {
