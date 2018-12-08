@@ -6,7 +6,7 @@ import logo from "./../logo.png";
 export class NavBar extends React.Component {
   render() {
     return (
-      <div className="top-bar row">
+      <div id="NavBar" className="top-bar row">
         <div className="top-bar-left">
           <ul className="dropdown menu" data-dropdown-menu>
             <li className="top-bar__logo">
