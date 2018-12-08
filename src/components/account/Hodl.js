@@ -2,7 +2,7 @@ import React from "react";
 import products from "../../lib/products.json";
 import { ProductCard } from "../pure/ProductCard";
 
-export class Popular extends React.Component {
+export class Hodl extends React.Component {
   constructor(props) {
     super(props);
     let { limit } = this.props
@@ -24,11 +24,8 @@ export class Popular extends React.Component {
     ));
     return (
       <div className="row">
-        <h3>Most Bidded Thumbs</h3>
+        <p>You hodl</p>
           
-        <div className="row">
-          {ProductList}
-        </div>
 
       </div>
     );

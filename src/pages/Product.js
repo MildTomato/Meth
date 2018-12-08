@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../lib/data.json";
+import products from "../lib/products.json";
 
 import { NotFound } from "../components/pure/NotFound.js";
 
@@ -8,7 +8,7 @@ export class ProductPage extends React.Component {
     super(props);
     const { params } = props.match;
     let { productId } = params;
-    let product = data.find(x => `${x.id}` === `${productId}`) || null;
+    let product = products.find(x => `${x.id}` === `${productId}`) || null;
     let exists = product !== null;
     this.state = {
       id: productId,
