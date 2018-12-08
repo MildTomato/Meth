@@ -1,7 +1,7 @@
 import React from "react";
 import store from "../lib/store.json";
 import products from "../lib/products.json";
-import { Hodl } from "../components/account/Hodl.js";
+// import { Hodl } from "../components/account/Hodl.js";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";
 
