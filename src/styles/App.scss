@@ -1,10 +1,25 @@
-@import "/_test-partial.scss";
+
+/* Stylesheets */
+
+/* 
+  Foundation Import 
+*/
 
 @import "~foundation-sites/scss/foundation";
+
+/* 
+  Foundation Custom Settings 
+*/
 
 // Foundation everything just bangs everything from foundation
 /*@include foundation-everything;*/
 @import "/settings";
+
+/* 
+  Foundation Includes 
+
+  remove includes that we don't need
+*/
 
 // @import 'foundation';
 
@@ -63,6 +78,13 @@
 @include foundation-visibility-classes;
 // @include foundation-prototype-classes;
 
+/*
+  Partial Stylesheets
+*/
+
+@import "partials/navigation.scss";
+@import "partials/typography.scss";
+
 .App {
   text-align: center;
 }
@@ -96,11 +118,12 @@
   }
 }
 
-.hero {
-  background: #F3F4F6;
-}
-
 #Footer {
   background: #E5E5E5;
   padding: 30px 0;
+}
+
+.hero {
+  padding-top: 196px;
+  padding-bottom: 196px;
 }
