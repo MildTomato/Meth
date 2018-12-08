@@ -67,55 +67,64 @@ export class AccountPage extends React.Component {
 
     return (
       <div id="AccountPage">
-        <div className="row">
-          <h2>My Dashboard</h2>
+        <div className="row row--section">
+          <div class="columns large-6">
+            <h2>My Dashboard</h2>
+          </div>
+          <div class="columns large-6 text-right">
+            <h3>Balance <b>0.234 ETH</b></h3>
+          </div>
         </div>
 
         <div className="row">
-          <div className="small button-group">
-            <button
-              onClick={() => {
-                this.setState({ currentView: VIEWS.HODL });
-              }}
-              className={
-                currentView === VIEWS.HODL
-                  ? "button"
-                  : "button secondary hollow"
-              }
-            >
-              Images you HODL
-            </button>
-            <button
-              onClick={() => {
-                this.setState({ currentView: VIEWS.SENT });
-              }}
-              className={
-                currentView === VIEWS.SENT
-                  ? "button"
-                  : "button secondary hollow"
-              }
-            >
-              Bids Sent
-            </button>
-            <button
-              onClick={() => {
-                this.setState({ currentView: VIEWS.RECEIVED });
-              }}
-              className={
-                currentView === VIEWS.RECEIVED
-                  ? "button"
-                  : "button secondary hollow"
-              }
-            >
-              Bids Received
-            </button>
+          <div class="columns large-12">
+            <div className="small button-group">
+              <button
+                onClick={() => {
+                  this.setState({ currentView: VIEWS.HODL });
+                }}
+                className={
+                  currentView === VIEWS.HODL
+                    ? "button"
+                    : "button secondary hollow"
+                }
+              >
+                Images you HODL
+              </button>
+              <button
+                onClick={() => {
+                  this.setState({ currentView: VIEWS.SENT });
+                }}
+                className={
+                  currentView === VIEWS.SENT
+                    ? "button"
+                    : "button secondary hollow"
+                }
+              >
+                Bids Sent
+              </button>
+              <button
+                onClick={() => {
+                  this.setState({ currentView: VIEWS.RECEIVED });
+                }}
+                className={
+                  currentView === VIEWS.RECEIVED
+                    ? "button"
+                    : "button secondary hollow"
+                }
+              >
+                Bids Received
+              </button>
+            </div>
           </div>
         </div>
 
         {currentView === VIEWS.HODL && (
           <div>
             <div className="row align-stretch">
-              <p>You hodl.</p>
+              <div class="columns large-12">
+                <p>You hodl.</p>
+              </div>
             </div>
           </div>
         )}
@@ -123,18 +132,26 @@ export class AccountPage extends React.Component {
         {currentView === VIEWS.SENT && (
           <div>
             <div className="row align-stretch">
-              <p>You have sent {sent.length} bids.</p>
+              <div class="columns large-12">
+                <p>You have sent {sent.length} bids.</p>
+              </div>
+              <div class="columns large-12">
+                {SentList}
+              </div>
             </div>
-            {SentList}
           </div>
         )}
 
         {currentView === VIEWS.RECEIVED && (
           <div>
             <div className="row align-stretch">
-              <p>You have received {received.length} bids.</p>
+              <div class="columns large-12">
+                <p>You have received {received.length} bids.</p>
+              </div>
+              <div class="columns large-12">
+                {ReceivedList}
+              </div>
             </div>
-            {ReceivedList}
           </div>
         )}
       </div>

@@ -7,6 +7,7 @@ export class BidSent extends React.PureComponent {
     return (
       <div className="row align-stretch" key={id}>
         <div className="row columns align-stretch">
+        <div className="columns large-12">
           <div className="callout">
             <div className="row ">
               <div className="columns"><img className="thumbnail" src={thumb} alt={title} /></div>
@@ -16,6 +17,7 @@ export class BidSent extends React.PureComponent {
               Some info here
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

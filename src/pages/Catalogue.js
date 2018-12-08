@@ -27,8 +27,10 @@ export class CataloguePage extends React.Component {
     return (
       <div id="CataloguePage">
       <div className="container">
-        <div className="row">
-          <h1>Catalogue</h1>
+        <div className="row row--section">
+          <div class="columns large-12">
+            <h1>Catalogue</h1>
+          </div>
         </div>
 
         <div className="row">

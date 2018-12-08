@@ -30,16 +30,22 @@ export class ProductPage extends React.Component {
             </div>
           </div>
           <div className="columns large-8">
+
             <h1>{title}</h1>
             <p>{description}</p>
-            <p>
-              <label>
-                <input type="number" placeholder="ETH" />
-                <button type="button" className="button">
-                  Commit Bid
-                </button>
-              </label>
-            </p>
+
+            <div class="row collapse">
+              <div class="large-6 columns">
+                <div class="input-group">
+                  <span class="input-group-label"><i class="fab fa-ethereum"></i>ETH</span>
+                  <input class="input-group-field" type="number"/>
+                  <div class="input-group-button">
+                    <input type="submit" class="button" value="Commit Bid"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <p>
               <small>Created At</small>
               <br />

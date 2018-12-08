@@ -7,6 +7,7 @@ export class BidReceived extends React.PureComponent {
     return (
       <div className="row align-stretch" >
         <div className="row columns align-stretch">
+        <div className="columns large-12">
           <div className="callout">
             <div className="row ">
               <div className="columns"><img className="thumbnail" src={thumb} alt={title} /></div>
@@ -18,6 +19,7 @@ export class BidReceived extends React.PureComponent {
                   <button className="button hollow" onClick={onDecline}>Decline</button>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
