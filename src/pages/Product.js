@@ -1,6 +1,7 @@
 import React from "react";
 import products from "../lib/products.json";
 import { NotFound } from "../components/pure/NotFound.js";
+import Web3 from 'web3';
 
 export class ProductPage extends React.Component {
   constructor(props) {
@@ -15,6 +16,14 @@ export class ProductPage extends React.Component {
       exists
     };
   }
+
+  buy(){
+    window.web3.eth.sendTransaction({
+                from: window.web3.eth.coinbase,
+                to: '0xE767aEB31dAAF66366999F72FB5De2CEEA76c277',
+                value: window.web3.toWei(3, 'ether')
+            }, function(res){console.log(res)});
+  };
 
   render() {
     const { product, exists } = this.state;
@@ -40,7 +49,7 @@ export class ProductPage extends React.Component {
                   <span className="input-group-label"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>ETH</span>
                   <input className="input-group-field" type="number"/>
                   <div className="input-group-button">
-                    <input type="submit" className="button" value="Commit Bid"/>
+                    <button onClick={()=>{this.buy()}} className="button">Commit Bid</button>
                   </div>
                 </div>
               </div>
