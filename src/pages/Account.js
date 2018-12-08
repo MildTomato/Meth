@@ -4,7 +4,7 @@ import products from "../lib/products.json";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";
 import { ProductCard } from "../components/pure/ProductCard";
-import { DecryptModal } from "../components/pure/DecryptModal";
+import { DecryptModal } from "../components/containers/DecryptModal";
 
 
 const VIEWS = {
