@@ -1,8 +1,12 @@
 @import "/_test-partial.scss";
 
 @import "~foundation-sites/scss/foundation";
-@include foundation-everything;
+
+// Foundation everything just bangs everything from foundation
+/*@include foundation-everything;*/
 @import "/settings";
+
+// @import 'foundation';
 
 // Global styles
 @include foundation-global-styles;
@@ -10,9 +14,9 @@
 @include foundation-typography;
 
 // Grids (choose one)
-@include foundation-xy-grid-classes;
+// @include foundation-xy-grid-classes;
 // @include foundation-grid;
-// @include foundation-flex-grid;
+@include foundation-flex-grid;
 
 // Generic components
 @include foundation-button;
