@@ -72,20 +72,20 @@ export class AccountPage extends React.Component {
             <h2>My Dashboard</h2>
           </div>
           <div class="columns large-6 text-right">
-            <h3>Balance <b>0.234 ETH</b></h3>
+            <h3><span class="text-light">Balance </span><b>0.234 ETH</b></h3>
           </div>
         </div>
 
         <div className="row">
           <div class="columns large-12">
-            <div className="small button-group">
+            <div className="button-group large button-group--underline">
               <button
                 onClick={() => {
                   this.setState({ currentView: VIEWS.HODL });
                 }}
                 className={
                   currentView === VIEWS.HODL
-                    ? "button"
+                    ? "button button--active"
                     : "button secondary hollow"
                 }
               >
@@ -97,7 +97,7 @@ export class AccountPage extends React.Component {
                 }}
                 className={
                   currentView === VIEWS.SENT
-                    ? "button"
+                    ? "button button--active"
                     : "button secondary hollow"
                 }
               >
@@ -109,11 +109,15 @@ export class AccountPage extends React.Component {
                 }}
                 className={
                   currentView === VIEWS.RECEIVED
-                    ? "button"
+                    ? "button button--active"
                     : "button secondary hollow"
                 }
               >
                 Bids Received
+              </button>
+            
+              <button class="button secondary hollow text-right">
+                <i class="fas fa-cog"></i> Settings
               </button>
             </div>
           </div>
