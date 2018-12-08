@@ -10,12 +10,12 @@ export class Hero extends React.PureComponent {
       // <div className="hero" style={{backgroundImage: `url(${HeroBg})`, backgroundPosition: 'right', backgroundRepeat: 'no-repeat', backgroundSize: '55%'}}>
       <div className="hero">
         <div className="row">
-          <div className="column large-3">
+          <div className="column small-12 large-3">
             <h2 className="text-primary">
               Sell Your <br /> 
               </h2>
           </div>
-          <div class="column large-4">
+          <div class="column small-12 large-4">
           <h2 className="text-primary">
               [M]isleading <br />
               [E]ncrypted <br />
@@ -26,7 +26,7 @@ export class Hero extends React.PureComponent {
             <img src={Polaroid}/>
           </div>
 
-          <div className="column large-12">
+          <div className="column small-12 large-12">
             <Link to={`/catalogue`} className="button large" type="a">
               <i class="fas fa-book-open" style={{marginRight: 8}}></i> Explore Thumbnails
             </Link>

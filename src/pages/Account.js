@@ -290,14 +290,35 @@ export class AccountPage extends React.Component {
 
   _renderHodlList(hodl) {
     return hodl.map(product => {
+      let isVerified = false;
       return (
         <div className="columns small-6 medium-3 account-product-thumb" key={`hodl.${product.id}`}>
           <button
-            className="button expanded"
+            className="button small-6 column"
             onClick={() => this._decrypt(product.id)}
+            style={{width: "50%"}}
           >
             <i class="fas fa-lock" style={{marginRight: 16}}></i> Unlock
           </button>
+
+          { isVerified ? (
+            <button
+            disabled
+            className="button small-6 column hollow disabled"
+            onClick={() => this._verify(product.id)}
+            style={{width: "50%"}}
+          >
+            <i class="fas fa-check-circle" style={{marginRight: 16}}></i> Verified
+          </button>
+            ) : (
+              <button
+                className="button small-6 column hollow"
+                onClick={() => this._verify(product.id)}
+                style={{width: "50%"}}
+              >
+                <i class="fas fa-clipboard-check" style={{marginRight: 16}}></i> Verify
+              </button>
+            )}
           <ProductCard
             id={product.id}
             url={product.thumb}
