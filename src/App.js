@@ -16,6 +16,7 @@ import { AccountPage } from './pages/Account.js';
 import { CataloguePage } from './pages/Catalogue';
 import { HomePage } from './pages/Home.js';
 import { NotFoundPage } from './pages/NotFound';
+import { ProductPage } from './pages/Product';
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/account" component={AccountPage} />
                 <Route exact path="/catalogue" component={CataloguePage} />
+                <Route exact path="/product" component={ProductPage} />
                 <Route component={NotFoundPage} />
               </Switch>
             </div>
