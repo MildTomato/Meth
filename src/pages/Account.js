@@ -33,14 +33,30 @@ export class AccountPage extends React.Component {
       let product =
         products.find(p => `${p.id}` === `${bid.productId}`) || null;
       if (product === null) return null;
-      return <BidSent id={bid.id} title={product.title} key={bid.id} />;
+      return (
+        <BidSent
+          id={bid.id}
+          title={product.title}
+          key={bid.id}
+          thumb={product.thumb}
+          wei={bid.wei}
+        />
+      );
     });
 
     let ReceivedList = received.map(bid => {
       let product =
         products.find(p => `${p.id}` === `${bid.productId}`) || null;
       if (product === null) return null;
-      return <BidReceived id={bid.id} title={product.title} key={bid.id} />;
+      return (
+        <BidReceived
+          id={bid.id}
+          title={product.title}
+          key={bid.id}
+          thumb={product.thumb}
+          wei={bid.wei}
+        />
+      );
     });
 
     return (
