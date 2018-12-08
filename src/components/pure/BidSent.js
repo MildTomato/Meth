@@ -9,7 +9,7 @@ export class BidSent extends React.PureComponent {
         <div className="row columns align-stretch">
           <div className="callout">
             <div className="row ">
-              <div className="columns"><img class="thumbnail" src={thumb} alt={title} /></div>
+              <div className="columns"><img className="thumbnail" src={thumb} alt={title} /></div>
               <div className="columns">{title}</div>
               <div className="columns">{ether} ETH</div>
               <div className="columns">

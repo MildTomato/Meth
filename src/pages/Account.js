@@ -55,6 +55,12 @@ export class AccountPage extends React.Component {
           key={bid.id}
           thumb={product.thumb}
           wei={bid.wei}
+          onAccept={() => {
+            alert("Accepted");
+          }}
+          onDecline={() => {
+            alert("Declined");
+          }}
         />
       );
     });
