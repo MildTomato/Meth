@@ -1,6 +1,5 @@
 import React from "react";
 import data from "../../lib/data.json";
-import { Link } from "react-router-dom";
 import { ProductCard } from "../pure/ProductCard";
 
 export class Popular extends React.Component {
@@ -25,7 +24,7 @@ export class Popular extends React.Component {
     ));
     return (
       <div className="row">
-        <h1>Popular</h1>
+        <h3>Most Bidded Thumbs</h3>
           
         <div className="row">
           {ProductList}

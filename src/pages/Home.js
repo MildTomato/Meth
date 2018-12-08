@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { Hero } from '../components/pure/Hero.js';
 import { Popular } from '../components/containers/Popular.js';

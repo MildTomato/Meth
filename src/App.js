@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.scss';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
 } from "react-router-dom";
 
 
