@@ -14,7 +14,7 @@ Some slides which explain the concept: https://docs.google.com/presentation/d/1i
 
 ## Structure
 
-This is a basic react app that functions as a demonstration marketplace for the underlying Meth smartcontract.
+This is a basic react app that functions as a demonstration marketplace for the underlying SecretContent smartcontract.
 
 The project has the following structure:
 
