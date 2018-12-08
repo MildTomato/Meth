@@ -31,3 +31,35 @@
 top: -60px;
   position: relative;
 }
+
+
+.hero {
+  top: -90px;
+  background-color: #1e1e1e;
+  padding-top: 196px;
+  padding-bottom: 196px;
+
+  // h1 {
+  //   font-size: 60px;
+  // }
+}
+
+.product-card {
+  .product-card__thumbnail {
+    width: 100%;
+  } 
+
+  h4 {
+    margin-top: $global-margin;
+  }
+}
+
+.thumb-container {
+  // border: 1px solid $light-gray;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumb--blur {
+  filter: blur(6.5px);
+}

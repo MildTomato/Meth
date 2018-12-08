@@ -1,0 +1,39 @@
+.button-group--underline {
+  border-bottom: 1px solid $dark-gray;
+  height: 64px;
+  margin-bottom: 0;
+
+  .button {
+    border: none !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: $global-margin * 2;
+    bottom: -1px;
+    position: relative;
+    padding-bottom: 8px;
+    transition: 0.15s all ease;
+    cursor: pointer;
+  }
+
+  .button--active {
+    background: transparent;
+    border-bottom: 4px solid $white !important;
+    color: $white;
+    font-weight: 600;
+    padding-bottom: 16px;
+  }
+}
+
+.button {
+  // font-weight: 600;
+
+  &.alert {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+button:focus {outline:0;}

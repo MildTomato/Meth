@@ -83,69 +83,10 @@
 */
 
 @import "partials/layout.scss";
+@import "partials/button.scss";
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
 @import "partials/animation.scss";
-
-.button-group--underline {
-  border-bottom: 1px solid $dark-gray;
-  height: 64px;
-  margin-bottom: 0;
-
-  .button {
-    border: none !important;
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: $global-margin * 2;
-    bottom: -1px;
-    position: relative;
-    padding-bottom: 8px;
-    transition: 0.15s all ease;
-    cursor: pointer;
-  }
-
-  .button--active {
-    background: transparent;
-    border-bottom: 4px solid $white !important;
-    color: $white;
-    font-weight: 600;
-    padding-bottom: 16px;
-  }
-}
-
-.product-card {
-  .product-card__thumbnail {
-    width: 100%;
-  } 
-
-  h4 {
-    margin-top: $global-margin;
-  }
-}
-
-.button {
-  // font-weight: 600;
-
-  &.alert {
-    color: $white;
-
-    &:hover {
-      color: $white;
-    }
-  }
-}
-
-button:focus {outline:0;}
-
-.thumb-container {
-  // border: 1px solid $light-gray;
-  overflow: hidden;
-  position: relative;
-}
-
-.thumb--blur {
-  filter: blur(6.5px);
-}
 
 
 .App {
@@ -181,31 +122,12 @@ button:focus {outline:0;}
   }
 }
 
-#Footer {
-  background: #1e1e1e;
-  padding: 30px 0;
-}
-#NavBar {
-  position: relative;
-  z-index: 3;
-}
 .ReactModalPortal {
   position: relative;
   z-index: 99;
 }
 
-.hero {
-  top: -90px;
-  background-color: #1e1e1e;
-  padding-top: 196px;
-  padding-bottom: 196px;
-
-  // h1 {
-  //   font-size: 60px;
-  // }
-}
-
-
+// Modal Hacks
 
 .ReactModal__Overlay {
   background: none !important;
