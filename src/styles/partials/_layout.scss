@@ -1,0 +1,17 @@
+
+
+.page-wrapper {
+  position: relative;
+  z-index: -100;
+}
+
+.row-section {
+  padding-top: 60px;
+  padding-bottom: 64px;
+}
+
+// bump up the homepage like a boss
+.home {
+top: -60px;
+  position: relative;
+}

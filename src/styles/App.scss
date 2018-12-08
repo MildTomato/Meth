@@ -82,8 +82,12 @@
   Partial Stylesheets
 */
 
+@import "partials/layout.scss";
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
+
+
+
 
 .App {
   text-align: center;
@@ -124,6 +128,8 @@
 }
 
 .hero {
+  top: -90px;
+  background-color: #EBEBEB;
   padding-top: 196px;
   padding-bottom: 196px;
 }
