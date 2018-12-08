@@ -38,10 +38,13 @@ The project has the following structure:
 
 ## Development
 
+We use Ganache for local ethereum dev environment
+
 ```bash
 npm start # Runs the app in the development mode
 npm test # Launches the test runner in the interactive watch mode
 npm run build #Builds the app for production to the `build` folder
 npm run eject # Ejects the app from the standard config build
+truffle migrate # deploys smart contracts
 ```
 
