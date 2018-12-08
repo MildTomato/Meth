@@ -4,11 +4,12 @@ export class Footer extends React.Component {
   render() {
     
     return (
-      <footer>
-          <div class="row">
-              <div class="twelve columns">
-                  Footer
-              </div>
+      <footer className="footer">
+          <div className="grid-container">
+            <div className="grid-x">
+              <div className="cell small-6">Footer</div>
+              <div className="cell small-6">Links</div>
+            </div>
           </div>
       </footer>
     );
