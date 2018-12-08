@@ -1,9 +1,9 @@
 import React from "react";
 import store from "../lib/store.json";
 import products from "../lib/products.json";
-// import { Hodl } from "../components/account/Hodl.js";
 import { BidReceived } from "../components/pure/BidReceived";
 import { BidSent } from "../components/pure/BidSent";
+import { ProductCard } from "../components/pure/ProductCard";
 
 const VIEWS = {
   HODL: "HODL",
@@ -28,6 +28,22 @@ export class AccountPage extends React.Component {
 
   render() {
     const { userId, user, sent, received, currentView } = this.state;
+
+    let hodl = user.hodl || []
+    let HodlList = hodl.map(x => {
+      let product =
+        products.find(p => `${p.id}` === `${x.productId}`) || null;
+      if (product === null) return null;
+      return (
+        <div className="columns large-4">
+        <ProductCard
+          id={product.id}
+          url={product.thumb}
+          title={product.title}
+        />
+        </div>
+      );
+    });
 
     let SentList = sent.map(bid => {
       let product =
@@ -123,7 +139,13 @@ export class AccountPage extends React.Component {
           <div>
             <div className="row align-stretch">
               <div className="columns large-12">
-                <p>You hodl.</p>
+                <p>You hodl {sent.length} items.</p>
+              </div>
+              <div className="columns large-12">
+
+            <div className="row align-stretch">
+                {HodlList}
+              </div>
               </div>
             </div>
           </div>
