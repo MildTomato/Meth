@@ -37,18 +37,18 @@ export class DecryptModal extends React.PureComponent {
           <h2>Decrypt</h2>
           {!isLoading ? (
             <div>
+              <button
+                onClick={() => this._onDecryptClick()}
+                className="button expanded"
+              >
+                Decrypt
+              </button>
             <button
               onClick={() => onClose()}
               className="button expanded secondary"
             >
               Cancel
             </button>
-              <button
-                onClick={() => this._onDecryptClick()}
-                className="button expanded secondary"
-              >
-                Decrypt
-              </button>
             </div>
           ) : (
             <div>Decrypting ...</div>

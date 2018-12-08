@@ -35,20 +35,20 @@ export class ConfirmBidModal extends React.PureComponent {
           {!isLoading ? (
             <div>
               <button
+                onClick={() => this._onConfirmBid()}
+                className="button expanded"
+              >
+                Accept
+              </button>
+              <button
                 onClick={() => onClose()}
                 className="button expanded secondary"
               >
                 Cancel
               </button>
-              <button
-                onClick={() => this._onConfirmBid()}
-                className="button expanded secondary"
-              >
-                Accept
-              </button>
             </div>
           ) : (
-            <div>{currentState}.</div>
+            <div>{currentState}</div>
           )}
         </Modal>
       </div>
