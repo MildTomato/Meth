@@ -11,7 +11,7 @@ export class NavBar extends React.Component {
           <ul className="dropdown menu" data-dropdown-menu>
             <li className="top-bar__logo">
               <Link to={`/`} className="">
-                <img src={logo} width="96" alt="METH"/>
+                <img src={logo} width="96" alt="METH" style={{marginTop: 4}}/>
               </Link>
             </li>
             <li>
