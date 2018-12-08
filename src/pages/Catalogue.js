@@ -1,5 +1,6 @@
 import React from "react";
 import products from "../lib/products.json";
+import { Link } from "react-router-dom";
 
 import { ProductCard } from "../components/pure/ProductCard";
 
@@ -16,12 +17,14 @@ export class CataloguePage extends React.Component {
     
     let ProductList = products.map(product => (
       <div className="columns small-6 medium-4 " key={`product.${product.id}`}>
+    	<Link to={`/product/${product.id}`}>
         <ProductCard
           id={product.id}
           url={product.thumb}
           title={product.title}
-          description={this._truncate(product.description, 100)}
+          description={product.description}
         />
+        </Link>
       </div>
     ));
 
@@ -40,10 +43,6 @@ export class CataloguePage extends React.Component {
       </div>
       </div>
     );
-  }
-
-  _truncate(string, n) {
-      return (string.length > n) ? string.substr(0, n-1) + ' ...' : string;
   }
 
 }
