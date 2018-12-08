@@ -16,7 +16,7 @@ export class CataloguePage extends React.Component {
     const { products } = this.state;
     
     let ProductList = products.map(product => (
-      <div className="columns small-6 medium-3 " key={`product.${product.id}`}>
+      <div className="columns small-6 medium-3 " key={`product.${product.id}`} style={{marginBottom: '15px'}}>
     	<Link to={`/product/${product.id}`}>
         <ProductCard
           id={product.id}

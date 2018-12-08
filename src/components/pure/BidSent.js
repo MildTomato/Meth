@@ -12,7 +12,7 @@ export class BidSent extends React.PureComponent {
             <b className="text-primary">{title}</b>
             <p>Description can go here</p>
           </div>
-          <div className="column shrink align-self-middle"><h5 className="text-primary"><i class="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h5></div>
+          <div className="column shrink align-self-middle"><h5 className="text-primary"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h5></div>
           <div className="column shrink align-self-middle"><p>Waiting For Response</p></div>
           <div className="column shrink align-self-middle text-right">
             <p className="text-primary">

@@ -70,7 +70,7 @@ export class VerifyModal extends React.PureComponent {
   }
 
   _onDecryptClick = async () => {
-    let { originalHash } = this.props;
+    let { onSuccess, onFail, originalHash } = this.props;
     let FAKE_HASH = "FAKE";
     try {
       // Decrypt the image
@@ -93,8 +93,13 @@ export class VerifyModal extends React.PureComponent {
         ? `Your image is correct!`
         : `Hmm.. this doesn't seem to match the original image`;
       this.setState({ isLoading: true, currentState });
+
+      // Finally finished
+      return onSuccess(verified);
+
     } catch (error) {
       console.error(error);
+      return onFail(error);
     }
   };
 }
