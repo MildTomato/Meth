@@ -86,6 +86,24 @@
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
 
+.button-group--underline {
+  border-bottom: 1px solid $light-gray;
+
+  .button {
+    border: none !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: $global-margin;
+    bottom: -1px;
+    position: relative;
+  }
+
+  .button--active {
+    background: transparent;
+    border-bottom: 2px solid $primary-color !important;
+    color: $primary-color;
+  }
+}
 
 .product-card {
   .product-card__thumbnail {
@@ -96,6 +114,12 @@
     margin-top: $global-margin;
   }
 }
+
+.button {
+  font-weight: 600;
+}
+
+button:focus {outline:0;}
 
 .thumb-container {
   border: 1px solid $light-gray;
