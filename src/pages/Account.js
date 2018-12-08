@@ -32,10 +32,10 @@ export class AccountPage extends React.Component {
     let hodl = user.hodl || []
     let HodlList = hodl.map(x => {
       let product =
-        products.find(p => `${p.id}` === `${x.productId}`) || null;
+        products.find(p => `${p.id}` === `${x}`) || null;
       if (product === null) return null;
       return (
-        <div className="columns large-4">
+        <div className="columns small-6 medium-3" key={`hodl.${x}`}>
         <ProductCard
           id={product.id}
           url={product.thumb}
@@ -141,13 +141,11 @@ export class AccountPage extends React.Component {
               <div className="columns large-12">
                 <p>You hodl {sent.length} items.</p>
               </div>
-              <div className="columns large-12">
+            </div>
 
             <div className="row align-stretch">
                 {HodlList}
               </div>
-              </div>
-            </div>
           </div>
         )}
 
