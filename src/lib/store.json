@@ -1,0 +1,73 @@
+{
+  "account": {
+    "userId": "ALICE"
+  },
+  "users": {
+    "ALICE": {
+      "id": "ALICE",
+      "hodl": [1, 2, 3, 4]
+    },
+    "BARRY": {
+      "id": "BARRY",
+      "hodl": [1, 2, 3, 4]
+    }
+  },
+  "bids": [
+    {
+      "id": "hzdfkguhd",
+      "wei": 1000000000000000000,
+      "type": "SENT",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "sdlfjhhwei",
+      "wei": 2000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "dfgkjgert",
+      "wei": 3000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "aewiuwoief",
+      "wei": 4000000000000000000,
+      "type": "RECIEVED",
+      "sender": "BARRY",
+      "receiver": "ALICE"
+    },
+    {
+      "id": "hzdfkguhd",
+      "wei": 1000000000000000000,
+      "type": "SENT",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    },
+    {
+      "id": "sdlfjhhwei",
+      "wei": 2000000000000000000,
+      "type": "RECIEVED",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    },
+    {
+      "id": "dfgkjgert",
+      "wei": 3000000000000000000,
+      "type": "RECIEVED",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    },
+    {
+      "id": "aewiuwoief",
+      "wei": 4000000000000000000,
+      "type": "RECIEVED",
+      "sender": "ALICE",
+      "receiver": "BARRY"
+    }
+  ]
+}
