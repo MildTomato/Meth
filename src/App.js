@@ -11,8 +11,10 @@ import {
 
 import { NavBar } from './components/NavBar.js';
 import { Footer } from './components/Footer.js';
-import { HomePage } from './pages/Home.js';
+
+import { AccountPage } from './pages/Account.js';
 import { CataloguePage } from './pages/Catalogue';
+import { HomePage } from './pages/Home.js';
 import { NotFoundPage } from './pages/NotFound';
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
             <div className="page-wrapper">
               <Switch>
                 <Route exact path="/" component={HomePage} />
+                <Route exact path="/account" component={AccountPage} />
                 <Route exact path="/catalogue" component={CataloguePage} />
                 <Route component={NotFoundPage} />
               </Switch>
