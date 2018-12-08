@@ -1,0 +1,22 @@
+
+
+.page-wrapper {
+  // position: relative;
+}
+
+.row--section {
+  padding-top: 60px;
+  padding-bottom: 64px;
+
+  .row--section__title {
+  	margin-bottom: 64px;
+  }
+}
+
+
+
+// bump up the homepage like a boss
+.home {
+top: -60px;
+  position: relative;
+}

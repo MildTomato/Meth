@@ -14,9 +14,11 @@ export class HomePage extends React.Component {
   render() {
     // const { } = this.state;
     return (
-      <div id="HomePage">
+      <div id="HomePage" className="home">
         <Hero />
-        <Popular limit="3" />
+        
+        <Popular limit="4" />
+        
       </div>
     );
   }

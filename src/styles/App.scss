@@ -82,8 +82,21 @@
   Partial Stylesheets
 */
 
+@import "partials/layout.scss";
 @import "partials/navigation.scss";
 @import "partials/typography.scss";
+
+
+.product-card {
+  .product-card__thumbnail {
+    width: 100%;
+  } 
+
+  h4 {
+    margin-top: $global-margin;
+  }
+}
+
 
 .App {
   text-align: center;
@@ -124,6 +137,8 @@
 }
 
 .hero {
+  top: -90px;
+  background-color: #EBEBEB;
   padding-top: 196px;
   padding-bottom: 196px;
 }
