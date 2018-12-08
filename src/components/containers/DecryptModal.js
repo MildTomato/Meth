@@ -29,7 +29,7 @@ export class DecryptModal extends React.PureComponent {
     let { isOpen, productId, onClose } = this.props;
 
     return (
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", width: "100px" }}>
         <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Decrypt">
           <h2>Decrypt</h2>
           {!isLoading ? (
