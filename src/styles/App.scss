@@ -133,6 +133,7 @@ button:focus {outline:0;}
 .thumb-container {
   border: 1px solid $light-gray;
   overflow: hidden;
+  position: relative;
 }
 
 .thumb--blur {
@@ -195,4 +196,15 @@ button:focus {outline:0;}
   // h1 {
   //   font-size: 60px;
   // }
+}
+
+
+
+.ReactModal__Overlay {
+  background: none !important;
+}
+
+.ReactModal__Content {
+  width: 360px;
+  height: 600px;
 }
