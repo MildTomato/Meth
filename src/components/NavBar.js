@@ -16,7 +16,7 @@ export class NavBar extends React.Component {
             </li>
             <li>
               <a href="#">
-                <i className="fas fa-circle text-success" style={{marginLeft: 16, marginRight: 8}}/> Network Good
+                <i className="fas fa-circle text-success" style={{marginLeft: 16, marginRight: 8}}/> Network Status: Go Moon
               </a>
             </li>
           </ul>
