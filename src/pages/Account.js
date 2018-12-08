@@ -157,7 +157,12 @@ export class AccountPage extends React.Component {
   }
 
   _verify(productId) {
-    this.setState({ verifyModalOpen: true });
+    this.verifying = productId;
+    let hodl = this.state.hodl.map(x => {
+      if (x.id === productId) return {...x, isLoading: true}
+      else return x
+    })
+    this.setState({ hodl, verifyModalOpen: true });
   }
 
 
