@@ -5,21 +5,26 @@ export class BidReceived extends React.PureComponent {
     const { title, thumb, wei, onAccept, onDecline } = this.props;
     let ether = (wei / (10e17)).toFixed(2)
     return (
-      <div className="row align-stretch" >
-        <div className="row columns align-stretch">
-        <div className="columns large-12">
-          <div className="callout">
-            <div className="row ">
-              <div className="columns"><img className="thumbnail" src={thumb} alt={title} /></div>
-              <div className="columns">{title}</div>
-              <div className="columns">{ether} ETH</div>
-              <div className="columns">
-                <div className="button-group">
-                  <button className="button primary" onClick={onAccept}>Accept Bid</button>
-                  <button className="button hollow" onClick={onDecline}>Decline</button>
-                </div>
-              </div>
-            </div>
+      <div>
+        <div className="row align-justify row--acount-item">
+          <div className="column shrink align-self-middle"><img src={thumb} alt={title} width="96" height="96"/></div>
+          <div className="column align-self-middle">
+            <b className="text-primary">{title}</b>
+            <p>Description can go here</p>
+          </div>
+          <div className="column align-self-middle text-right">
+            <h5 className="text-primary">
+            <i className="far fa-clock" style={{marginRight: 16}}></i>
+              <span className="h4">12</span>h
+              <span className="h4">12</span>m
+              <span className="h4">12</span>s
+            </h5>
+          </div>
+          <div className="column align-self-middle"><h3 className="text-primary"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>{ether} ETH</h3></div>
+          <div className="column large-4 text-right">
+            <div className="button-group large">
+              <button className="button primary" onClick={onAccept}><i className="far fa-check-circle"></i> Accept Bid</button>
+              <button className="button alert" onClick={onDecline}><i className="far fa-times-circle"></i></button>
             </div>
           </div>
         </div>
