@@ -14,6 +14,7 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
         uint amount;
         address bidder;
         bool accepted;
+        string pubKey;
     }
 
 
@@ -21,7 +22,8 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
         uint timestamp,
         uint amount,
         address bidder,
-        bool accepted
+        bool accepted,
+        string pubKey
     );
 
 
@@ -30,7 +32,7 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
     mapping(uint256 => Bid) private _highestBids;
 
 
-    function submit_bid(uint amount, uint256 tokenId) public {
+    function submit_bid(uint amount, uint256 tokenId, string pubKey) public payable {
         require(_exists(tokenId));
 
         Bid memory currentHighestBid = _highestBids[tokenId];
@@ -40,13 +42,13 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
         require(true != currentHighestBid.accepted);
 
         // for now we just store the highest bid
-        _highestBids[tokenId] = Bid(now, amount, msg.sender, false);
+        _highestBids[tokenId] = Bid(now, amount, msg.sender, false, pubKey);
 
-        emit NewBid(now, amount, msg.sender, false);
+        emit NewBid(now, amount, msg.sender, false, pubKey);
     }
 
 
-    function accept_bid(uint256 tokenId, address bidder, uint amount) public {
+    function accept_bid(uint256 tokenId, address bidder, uint amount, string newUri) public {
         address tokenOwner = ownerOf(tokenId);
         assert(tokenOwner == msg.sender);
 
@@ -54,6 +56,19 @@ contract SecretContent is Ownable, ERC721Full, ERC721Pausable {
         require(currentHighestBid.amount == amount);
         require(currentHighestBid.bidder == bidder);
         require(currentHighestBid.accepted == false);
+
+        // probably need some proof of receipt that the new file has been received by the image hosting db
+
+        _setTokenURI(tokenId, newUri);
+        safeTransferFrom(msg.sender, bidder, tokenId);
+        msg.sender.transfer(currentHighestBid.amount);
+
+        // replace with accepted bid
+        _highestBids[tokenId] = Bid(currentHighestBid.timestamp,
+            currentHighestBid.amount,
+            currentHighestBid.bidder,
+            true,
+            currentHighestBid.pubKey);
     }
 
 
