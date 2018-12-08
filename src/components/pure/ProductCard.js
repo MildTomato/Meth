@@ -5,7 +5,7 @@ export class ProductCard extends React.PureComponent {
     let { id, url, title } = this.props
     return (
     	<Link to={`/product/${id}`}>
-    	<div class="product-card">
+    	<div className="product-card">
 	  		
 	     	<div class="thumb-container">
 	    		<img className="product-card__thumbnail thumb thumb--blur" src={url} alt={title} />

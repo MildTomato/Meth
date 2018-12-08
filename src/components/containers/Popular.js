@@ -25,7 +25,7 @@ export class Popular extends React.Component {
     return (
       <div className="row row--section">
       <div className="columns small-12">
-        <h3 class="row--section__title">
+        <h3 className="row--section__title">
           Most Bidded Thumbs
         </h3>
       </div>
