@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-export class NotFoundPage extends React.Component {
+export class FourOhFourPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export class NotFoundPage extends React.Component {
   render() {
     // const { } = this.state;
     return (
-      <div id="NotFoundPage">
+      <div id="FourOhFourPage">
         404 yo
       </div>
     );

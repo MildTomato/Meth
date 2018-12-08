@@ -15,7 +15,7 @@ import { Footer } from './components/Footer.js';
 import { AccountPage } from './pages/Account.js';
 import { CataloguePage } from './pages/Catalogue';
 import { HomePage } from './pages/Home.js';
-import { NotFoundPage } from './pages/NotFound';
+import { FourOhFourPage } from './pages/FourOhFour';
 import { ProductPage } from './pages/Product';
 
 class App extends Component {
@@ -29,8 +29,8 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/account" component={AccountPage} />
                 <Route exact path="/catalogue" component={CataloguePage} />
-                <Route exact path="/product/:id" component={ProductPage} />
-                <Route component={NotFoundPage} />
+                <Route exact path="/product/:productId" component={ProductPage} />
+                <Route component={FourOhFourPage} />
               </Switch>
             </div>
             <Footer />
