@@ -1,5 +1,7 @@
 import React from "react";
 
+import pixel from "./../../pixel.gif";
+
 const MAX_DESCRIPTION_LENGTH = 100;
 export class ProductCard extends React.PureComponent {
   render() {
@@ -17,6 +19,7 @@ export class ProductCard extends React.PureComponent {
             src={url}
             alt={title}
           />
+          <img className="pixel-overlay" src={pixel}/>
         </div>
 
         <h4>{title}</h4>
