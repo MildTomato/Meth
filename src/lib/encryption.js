@@ -14,7 +14,16 @@ export const decrypt = (hash, privateKey) => {
 }
 
 // This is a mock function to emulate the actual encryption process
-export const encrypt = () => {
+export const encrypt = (data, publicKey) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      return resolve(true)
+    }, MOCK_TIME);
+  })
+}
+
+// This is a mock function to emulate the uploading of a new encrypted file to IPFS
+export const upload = (payload) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       return resolve(true)

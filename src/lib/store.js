@@ -35,6 +35,7 @@ const store = {
       "wei": 1000000000000000000,
       "type": "SENT",
       "sender": "BARRY",
+      "pubKey": "uTW6GKQwKPoyFJrAp9r4EsHpUZ0HGHzVohY42E5uCnc=", 
       "receiver": "ALICE"
     },
     {
@@ -43,6 +44,7 @@ const store = {
       "wei": 2000000000000000000,
       "type": "RECIEVED",
       "sender": "BARRY",
+      "pubKey": "uTW6GKQwKPoyFJrAp9r4EsHpUZ0HGHzVohY42E5uCnc=", 
       "receiver": "ALICE"
     },
     {
@@ -51,6 +53,7 @@ const store = {
       "wei": 3000000000000000000,
       "type": "RECIEVED",
       "sender": "BARRY",
+      "pubKey": "uTW6GKQwKPoyFJrAp9r4EsHpUZ0HGHzVohY42E5uCnc=", 
       "receiver": "ALICE"
     },
     {
@@ -59,6 +62,7 @@ const store = {
       "wei": 4000000000000000000,
       "type": "RECIEVED",
       "sender": "BARRY",
+      "pubKey": "uTW6GKQwKPoyFJrAp9r4EsHpUZ0HGHzVohY42E5uCnc=", 
       "receiver": "ALICE"
     },
     
@@ -68,6 +72,7 @@ const store = {
       "wei": 1000000000000000000,
       "type": "SENT",
       "sender": "ALICE",
+      "pubKey": "o963R0sjgfHyc7Q7GiyWdpcjhsnM6aX0rFarIVa1sRc=", 
       "receiver": "BARRY"
     },
     {
@@ -76,6 +81,7 @@ const store = {
       "wei": 2000000000000000000,
       "type": "RECIEVED",
       "sender": "ALICE",
+      "pubKey": "o963R0sjgfHyc7Q7GiyWdpcjhsnM6aX0rFarIVa1sRc=", 
       "receiver": "BARRY"
     },
     {
@@ -84,6 +90,7 @@ const store = {
       "wei": 3000000000000000000,
       "type": "RECIEVED",
       "sender": "ALICE",
+      "pubKey": "o963R0sjgfHyc7Q7GiyWdpcjhsnM6aX0rFarIVa1sRc=", 
       "receiver": "BARRY"
     }
   ]
