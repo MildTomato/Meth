@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { decryptMock } from "../../lib/encryption";
-import { fox } from "../../metamask.png";
+import fox from "./../../metamask.png";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -35,8 +35,8 @@ export class DecryptModal extends React.PureComponent {
           contentLabel="Decrypt"
           style={localStyles}
         >
-          <img src={fox}/>
-          <h2>Decrypt</h2>
+          <img src={fox} width="96"/>
+          <h3>Decrypt</h3>
           {!isLoading ? (
             <div>
               <button

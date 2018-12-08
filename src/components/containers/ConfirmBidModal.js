@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { decryptMock, encryptMock, uploadMock } from "../../lib/encryption";
-import { fox } from "../../metamask.png";
+import fox from "./../../metamask.png";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -32,8 +32,8 @@ export class ConfirmBidModal extends React.PureComponent {
       <div style={{ position: "relative", zIndex: 99 }}>
         <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Confirm Bid"
           style={localStyles}>
-          <img src={fox}/>
-          <h2>Are you sure?</h2>
+          <img src={fox} width="96"/>
+          <h3>Are you sure?</h3>
           {!isLoading ? (
             <div>
               <button

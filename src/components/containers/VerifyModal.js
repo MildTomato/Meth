@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { verifyMock, decryptMock, hashMock } from "../../lib/encryption";
+import fox from "./../../metamask.png";
 
 Modal.setAppElement("#root");
 const localStyles = {
@@ -35,7 +36,8 @@ export class VerifyModal extends React.PureComponent {
           contentLabel="Verify"
           style={localStyles}
         >
-          <h2>Verify</h2>
+          <img src={fox} width="96"/>
+          <h3>Verify</h3>
           {!isLoading ? (
             <div>
             <button
