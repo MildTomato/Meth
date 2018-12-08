@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { NavBar } from './components/NavBar.js';
 import './App.scss';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+
+
+import { NavBar } from './components/NavBar.js';
+import { Footer } from './components/Footer.js';
+import { HomePage } from './pages/Home.js';
+import { CataloguePage } from './pages/Catalogue';
+import { NotFoundPage } from './pages/NotFound';
 
 class App extends Component {
   render() {
     return (
-      <div className="App test-class">
-      <NavBar />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+          <div>
+            <NavBar />
+            <div className="page-wrapper">
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/catalogue" component={CataloguePage} />
+                <Route component={NotFoundPage} />
+              </Switch>
+            </div>
+            <Footer />
+          </div>
+      </Router>
     );
   }
 }
