@@ -45,11 +45,11 @@ export class ProductPage extends React.Component {
 
             <div className="row collapse">
               <div className="large-6 columns">
-                <div className="input-group">
+                <div className="input-group" style={{marginTop: 32, marginBottom: 32}}>
                   <span className="input-group-label"><i className="fab fa-ethereum" style={{marginRight: 16}}></i>ETH</span>
                   <input className="input-group-field" type="number"/>
                   <div className="input-group-button">
-                    <button onClick={()=>{this.buy()}} className="button">Commit Bid</button>
+                    <button onClick={()=>{this.buy()}} className="button"><i class="fas fa-gavel" style={{marginRight: 8}}></i> Commit Bid</button>
                   </div>
                 </div>
               </div>
