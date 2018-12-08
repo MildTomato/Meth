@@ -17,29 +17,33 @@ export class AccountPage extends React.Component {
     let user = store.users[userId];
     let sent = store.bids.filter(x => x.sender === userId);
     let received = store.bids.filter(x => x.receiver === userId);
+    let hodl = (user.hodl || []).map(x => {
+      let product =
+        products.find(p => `${p.id}` === `${x}`) || null;
+      if (product === null) return null;
+      return {...product, decrypted: false}
+    });
     this.state = {
       userId,
       user,
       sent,
+      hodl,
       received,
       currentView: VIEWS.HODL
     };
   }
 
   render() {
-    const { userId, user, sent, received, currentView } = this.state;
+    const { hodl, sent, received, currentView } = this.state;
 
-    let hodl = user.hodl || []
-    let HodlList = hodl.map(x => {
-      let product =
-        products.find(p => `${p.id}` === `${x}`) || null;
-      if (product === null) return null;
+    let HodlList = hodl.map(product => {
       return (
-        <div className="columns small-6 medium-3" key={`hodl.${x}`}>
+        <div className="columns small-6 medium-3" key={`hodl.${product.id}`}>
         <ProductCard
           id={product.id}
           url={product.thumb}
           title={product.title}
+          decrypted={product.decrypted}
         />
         </div>
       );
