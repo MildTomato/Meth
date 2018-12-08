@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer">
+      <footer id="Footer">
         <div className="row">
           <div className="columns small-6">TITLE</div>
           <div className="columns small-2">
