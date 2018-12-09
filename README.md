@@ -1,7 +1,7 @@
 # Meth
 
 Meth is for users to buy and sell [M]isleading [E]ncrypted [Th]umbnails, built on top of Ethereum blockchain. You can find a functioning demo at:
-https://meth.netlify.com
+http://buymeth.com
 
 ## Motivation
 
