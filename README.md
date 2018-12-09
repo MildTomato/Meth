@@ -1,6 +1,6 @@
 # Meth
 
-Meth is for users to buy and sell [M]isleading [E]ncrypted [Th]umbnails, built on top of Ethereum blockchain. You can find a functioning demo at:
+Meth is for users to buy and sell [M]isleading [E]ncrypted [Th]umbnails, built on top of Ethereum blockchain (or any encrypted data that requires a transfer between buyer and seller). You can find a functioning demo at:
 http://buymeth.com
 
 ## Motivation
