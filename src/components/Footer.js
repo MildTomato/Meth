@@ -20,7 +20,9 @@ export class Footer extends React.Component {
                   Catalogue
                 </Link>
               </li>
-              <li>Search</li>
+              <li>
+                <a href="https://github.com/MildTomato/Meth">Github</a>
+              </li>
             </ul>
           </div>
         </div>

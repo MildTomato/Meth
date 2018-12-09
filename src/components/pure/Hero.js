@@ -34,7 +34,7 @@ export class Hero extends React.PureComponent {
               <i className="fas fa-cloud-upload-alt" style={{marginRight: 8}}></i> Upload + Encrpyt
             </Link>
             <br />
-            <small style={{textDecoration: "underline"}}>Learn more about image encryption</small>
+            <a href="https://github.com/MildTomato/Meth"><small style={{textDecoration: "underline"}}>Learn more about image encryption</small></a>
           </div>
         </div>
       </div>
