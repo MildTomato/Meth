@@ -6,7 +6,7 @@ export class Footer extends React.Component {
     return (
       <footer id="Footer">
         <div className="row">
-          <div className="columns small-6">TITLE</div>
+          <div className="columns small-6">Meth | Misleading Encrypted Thumbnails</div>
           <div className="columns small-2">
             <ul>
               <li>Terms</li>
